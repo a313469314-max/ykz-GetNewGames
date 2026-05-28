@@ -1,0 +1,8 @@
+channels_file: channels.csv
+output_dir: output
+database_path: data/youtube_newgame.db
+timezone_name: Asia/Shanghai
+youtube_api_key_env: YOUTUBE_API_KEY
+feishu_webhook_env: FEISHU_WEBHOOK
+request_timeout_seconds: 20
+request_retry_count: 3

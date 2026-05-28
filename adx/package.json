@@ -1,0 +1,27 @@
+{
+  "name": "getnewgames",
+  "version": "1.0.0",
+  "description": "DataEye AdXray daily new games collector",
+  "scripts": {
+    "login": "tsx src/cli/login.ts",
+    "fetch:new-games": "tsx src/cli/fetch-new-games.ts",
+    "send:feishu": "tsx src/cli/send-feishu-report.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "playwright": "^1.60.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.8.0",
+    "tsx": "^4.22.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.6"
+  }
+}

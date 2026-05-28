@@ -1,0 +1,6 @@
+.auth/
+.env
+node_modules/
+dist/
+coverage/
+
