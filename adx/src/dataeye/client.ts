@@ -1,11 +1,23 @@
 import { access } from "node:fs/promises";
-import { chromium } from "playwright";
+import { chromium, type BrowserContext } from "playwright";
 import { DATAEYE_HOME_URL, STORAGE_STATE_PATH, getAppAuthSnapshot } from "./auth.js";
-import { signDataEyeRequest } from "./sign.js";
+import { signDataEyeRequest, type SignParams } from "./sign.js";
 import type { DataEyeNewProductDay, DataEyeResponseEnvelope, FetchDailyNewGamesResult } from "./types.js";
 
-const API_URL = "https://adxray.dataeye.com/product/listTopNewProductDay";
+const DATAEYE_API_ORIGIN = "https://adxray.dataeye.com";
+const DAILY_NEW_GAMES_API_PATH = "/product/listTopNewProductDay";
+const PRODUCT_INFO_API_PATH = "/product/getProductInfo";
 const LOGIN_REQUIRED_STATUS = new Set([401, 403, 412, 509, 510]);
+
+interface DataEyeRequestSession {
+  context: BrowserContext;
+  token: string;
+  deHeaderS?: string;
+}
+
+interface FetchProductCompanyNamesOptions {
+  concurrency?: number;
+}
 
 export class LoginRequiredError extends Error {
   constructor(message = "登录态已失效，请重新执行 `npm run login`。") {
@@ -28,12 +40,40 @@ function unwrapDays(payload: unknown): DataEyeNewProductDay[] {
   return Array.isArray(nested) ? nested : [];
 }
 
+function unwrapContent(payload: unknown): unknown {
+  if (!payload || typeof payload !== "object") {
+    return payload;
+  }
+
+  const envelope = payload as DataEyeResponseEnvelope<unknown>;
+  return envelope.content ?? envelope.data ?? envelope.result ?? envelope.rows ?? envelope.list ?? payload;
+}
+
 function hasLoginExpiredHint(payload: unknown): boolean {
   const text = JSON.stringify(payload ?? "").toLowerCase();
   return ["未登录", "login", "userkey", "token", "请登录"].some((token) => text.includes(token.toLowerCase()));
 }
 
-export async function fetchDailyNewGames(): Promise<FetchDailyNewGamesResult> {
+function getStringValue(value: unknown): string {
+  return typeof value === "string" || typeof value === "number" ? String(value).trim() : "";
+}
+
+function getCompanyNameFromProductInfo(payload: unknown): string {
+  if (!payload || typeof payload !== "object") {
+    return "";
+  }
+
+  const productInfo = payload as Record<string, unknown>;
+  return (
+    getStringValue(productInfo.companyName) ||
+    getStringValue(productInfo.mainCompany) ||
+    getStringValue(productInfo.company) ||
+    getStringValue(productInfo.publisherName) ||
+    getStringValue(productInfo.developerName)
+  );
+}
+
+async function withDataEyeRequestSession<T>(callback: (session: DataEyeRequestSession) => Promise<T>): Promise<T> {
   try {
     await access(STORAGE_STATE_PATH);
   } catch {
@@ -54,37 +94,75 @@ export async function fetchDailyNewGames(): Promise<FetchDailyNewGamesResult> {
       throw new LoginRequiredError();
     }
 
-    const thisTimes = Math.floor(Date.now() / 100).toString();
-    const signedParams = { thisTimes };
-    const sign = signDataEyeRequest(signedParams);
+    return await callback({ context, token, deHeaderS });
+  } finally {
+    await context.close();
+    await browser.close();
+  }
+}
 
-    const response = await context.request.post(API_URL, {
-      form: {
-        ...signedParams,
-        token,
-        sign
-      },
-      headers: {
-        "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
-        ...(deHeaderS ? { s: deHeaderS } : {})
+async function postDataEyeApi(
+  session: DataEyeRequestSession,
+  path: string,
+  params: SignParams = {}
+): Promise<unknown> {
+  const thisTimes = Math.floor(Date.now() / 100).toString();
+  const signedParams = { ...params, thisTimes };
+  const sign = signDataEyeRequest(signedParams);
+
+  const response = await session.context.request.post(`${DATAEYE_API_ORIGIN}${path}`, {
+    form: {
+      ...signedParams,
+      token: session.token,
+      sign
+    },
+    headers: {
+      "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+      ...(session.deHeaderS ? { s: session.deHeaderS } : {})
+    }
+  });
+
+  if (LOGIN_REQUIRED_STATUS.has(response.status())) {
+    throw new LoginRequiredError();
+  }
+
+  const responseText = await response.text();
+  let payload: unknown = responseText;
+  try {
+    payload = JSON.parse(responseText);
+  } catch {
+    payload = responseText;
+  }
+
+  if (hasLoginExpiredHint(payload)) {
+    throw new LoginRequiredError();
+  }
+
+  return payload;
+}
+
+async function mapWithConcurrency<T>(
+  items: T[],
+  concurrency: number,
+  iteratee: (item: T) => Promise<void>
+): Promise<void> {
+  let nextIndex = 0;
+  const workerCount = Math.max(1, Math.min(concurrency, items.length));
+
+  await Promise.all(
+    Array.from({ length: workerCount }, async () => {
+      while (nextIndex < items.length) {
+        const item = items[nextIndex];
+        nextIndex += 1;
+        await iteratee(item);
       }
-    });
+    })
+  );
+}
 
-    if (LOGIN_REQUIRED_STATUS.has(response.status())) {
-      throw new LoginRequiredError();
-    }
-
-    const responseText = await response.text();
-    let payload: unknown = responseText;
-    try {
-      payload = JSON.parse(responseText);
-    } catch {
-      payload = responseText;
-    }
-
-    if (hasLoginExpiredHint(payload)) {
-      throw new LoginRequiredError();
-    }
+export async function fetchDailyNewGames(): Promise<FetchDailyNewGamesResult> {
+  return withDataEyeRequestSession(async (session) => {
+    const payload = await postDataEyeApi(session, DAILY_NEW_GAMES_API_PATH);
 
     const days = unwrapDays(payload);
     if (!Array.isArray(days) || days.length === 0) {
@@ -95,8 +173,26 @@ export async function fetchDailyNewGames(): Promise<FetchDailyNewGamesResult> {
       loginValid: true,
       days
     };
-  } finally {
-    await context.close();
-    await browser.close();
+  });
+}
+
+export async function fetchProductCompanyNames(
+  productIds: string[],
+  options: FetchProductCompanyNamesOptions = {}
+): Promise<Map<string, string>> {
+  const uniqueProductIds = [...new Set(productIds.map((productId) => productId.trim()).filter(Boolean))];
+  const companyNames = new Map<string, string>();
+
+  if (uniqueProductIds.length === 0) {
+    return companyNames;
   }
+
+  await withDataEyeRequestSession(async (session) => {
+    await mapWithConcurrency(uniqueProductIds, options.concurrency ?? 4, async (productId) => {
+      const payload = await postDataEyeApi(session, PRODUCT_INFO_API_PATH, { productId });
+      companyNames.set(productId, getCompanyNameFromProductInfo(unwrapContent(payload)));
+    });
+  });
+
+  return companyNames;
 }

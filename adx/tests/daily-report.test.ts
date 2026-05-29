@@ -8,6 +8,7 @@ describe("daily report", () => {
         statDate: "2026-05-18",
         productId: "1",
         productName: "战术小队",
+        companyName: "战术公司",
         productIcon: "",
         stableProductIcon: "",
         firstSeen: "",
@@ -35,5 +36,29 @@ describe("daily report", () => {
     expect(report).toContain("抖音小游戏 (新增 1 个)");
     expect(report).toContain("- 战术小队: https://example.com/1");
     expect(report).toContain("微信小游戏 (新增 1 个)");
+  });
+
+  it("can include company names without changing the default report", () => {
+    const games = [
+      {
+        statDate: "2026-05-18",
+        productId: "1",
+        productName: "战术小队",
+        companyName: "战术公司",
+        productIcon: "",
+        stableProductIcon: "",
+        firstSeen: "",
+        type: 7,
+        platformName: "抖音小游戏",
+        detailUrl: "https://example.com/1",
+        fetchedAt: "2026-05-18T02:24:20.195Z"
+      }
+    ];
+
+    expect(buildDailyReportText("2026-05-18", games)).toContain("- 战术小队: https://example.com/1");
+    expect(buildDailyReportText("2026-05-18", games)).not.toContain("战术公司");
+    expect(buildDailyReportText("2026-05-18", games, { includeCompanyName: true })).toContain(
+      "- 战术小队（战术公司）: https://example.com/1"
+    );
   });
 });
