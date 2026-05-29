@@ -89,6 +89,30 @@ npm run fetch:new-games -- --date 2026-05-18
 
 `DataEye 当前入口仅返回最近 14 天每日新品，请选择最近 14 天内的日期。`
 
+## 采集新品并补齐公司名称
+
+公司名称增强功能使用独立命令，不会覆盖默认 `fetch:new-games` 生成的 JSON/CSV/日报。
+
+```bash
+cd D:\GetNewGames\adx
+npm run fetch:new-games:company
+```
+
+采集指定日期并补齐公司名称：
+
+```bash
+cd D:\GetNewGames\adx
+npm run fetch:new-games:company -- --date 2026-05-18
+```
+
+公司版输出路径：
+
+```text
+data/daily-new-games-company/YYYY-MM-DD.json
+data/daily-new-games-company/YYYY-MM-DD.csv
+output/dataeye_new_games_company_YYYY-MM-DD.txt
+```
+
 ## 输出文件
 
 采集时会生成三类文件：
@@ -154,6 +178,8 @@ cd D:\GetNewGames\adx
 npm run login
 npm run fetch:new-games
 npm run fetch:new-games -- --date 2026-05-18
+npm run fetch:new-games:company
+npm run fetch:new-games:company -- --date 2026-05-18
 npm run send:feishu
 npm run send:feishu -- --date 2026-05-18
 npm test

@@ -4,6 +4,11 @@ export interface DataEyeNewProduct {
   productIcon?: string;
   firstSeen?: string;
   type?: number | string;
+  companyName?: string;
+  mainCompany?: string;
+  company?: string;
+  publisherName?: string;
+  developerName?: string;
 }
 
 export interface DataEyeNewProductDay {
@@ -40,6 +45,7 @@ export interface NormalizedNewGame {
   statDate: string;
   productId: string;
   productName: string;
+  companyName?: string;
   productIcon: string;
   stableProductIcon: string;
   firstSeen: string;

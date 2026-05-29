@@ -33,6 +33,24 @@ export function toStableProductIcon(productIcon?: string): string {
   }
 }
 
+export function getProductCompanyName(product: {
+  companyName?: unknown;
+  mainCompany?: unknown;
+  company?: unknown;
+  publisherName?: unknown;
+  developerName?: unknown;
+}): string {
+  const value =
+    product.companyName ??
+    product.mainCompany ??
+    product.company ??
+    product.publisherName ??
+    product.developerName ??
+    "";
+
+  return String(value).trim();
+}
+
 export function normalizeNewGames(day: DataEyeNewProductDay, fetchedAt: string): NormalizedNewGame[] {
   const deduped = new Map<string, NormalizedNewGame>();
 
@@ -48,6 +66,7 @@ export function normalizeNewGames(day: DataEyeNewProductDay, fetchedAt: string):
       statDate: day.statDate,
       productId,
       productName: String(product.productName ?? "").trim(),
+      companyName: getProductCompanyName(product),
       productIcon: String(product.productIcon ?? "").trim(),
       stableProductIcon: toStableProductIcon(product.productIcon),
       firstSeen: String(product.firstSeen ?? "").trim(),
@@ -63,3 +82,12 @@ export function normalizeNewGames(day: DataEyeNewProductDay, fetchedAt: string):
   return [...deduped.values()];
 }
 
+export function applyProductCompanyNames(
+  games: NormalizedNewGame[],
+  companyNamesByProductId: ReadonlyMap<string, string>
+): NormalizedNewGame[] {
+  return games.map((game) => ({
+    ...game,
+    companyName: companyNamesByProductId.get(game.productId)?.trim() || game.companyName || ""
+  }));
+}
