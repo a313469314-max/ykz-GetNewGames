@@ -34,9 +34,9 @@ from app_youtube_client import YoutubeClient, parse_youtube_datetime
 LOGGER = logging.getLogger(__name__)
 
 
-def run_pipeline() -> PipelineResult:
+def run_pipeline(now: datetime | None = None) -> PipelineResult:
     config = load_config()
-    date_window = build_date_window(config.timezone_name)
+    date_window = build_date_window(config.timezone_name, now=now)
 
     config.output_dir.mkdir(parents=True, exist_ok=True)
     config.history_dir.mkdir(parents=True, exist_ok=True)

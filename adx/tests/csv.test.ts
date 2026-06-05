@@ -18,14 +18,8 @@ describe("csv", () => {
     }
   ];
 
-  it("keeps the default csv schema unchanged", () => {
+  it("includes companyName in the default csv schema", () => {
     expect(toCsv(rows).split("\r\n")[0]).toBe(
-      "statDate,productId,productName,productIcon,stableProductIcon,firstSeen,type,platformName,detailUrl,fetchedAt"
-    );
-  });
-
-  it("can include company names for the company export", () => {
-    expect(toCsv(rows, { includeCompanyName: true }).split("\r\n")[0]).toBe(
       "statDate,productId,productName,companyName,productIcon,stableProductIcon,firstSeen,type,platformName,detailUrl,fetchedAt"
     );
   });

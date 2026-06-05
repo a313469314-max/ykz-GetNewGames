@@ -7,9 +7,12 @@ dist/
 coverage/
 .auth/
 
+# Python/test caches
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
+.cache/
 
 .venv/
 venv/
@@ -17,3 +20,19 @@ venv/
 *.log
 .DS_Store
 Thumbs.db
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated data and reports
+adx/data/
+adx/output/
+youtube-newgame-daily/data/
+youtube-newgame-daily/output/
+overseas-casual-newgame-daily/data/
+overseas-casual-newgame-daily/output/*
+!overseas-casual-newgame-daily/output/.gitkeep
+meme-hotspot-daily/data/
+meme-hotspot-daily/output/

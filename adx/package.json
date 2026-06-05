@@ -5,7 +5,6 @@
   "scripts": {
     "login": "tsx src/cli/login.ts",
     "fetch:new-games": "tsx src/cli/fetch-new-games.ts",
-    "fetch:new-games:company": "tsx src/cli/fetch-new-games-with-company.ts",
     "send:feishu": "tsx src/cli/send-feishu-report.ts",
     "test": "vitest run",
     "test:watch": "vitest",

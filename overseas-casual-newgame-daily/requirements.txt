@@ -1,0 +1,8 @@
+playwright>=1.52.0
+openpyxl>=3.1.5
+PyYAML>=6.0.2
+python-dotenv>=1.0.1
+requests>=2.32.0
+beautifulsoup4>=4.12.3
+tzdata>=2025.2
+pytest>=8.3.0

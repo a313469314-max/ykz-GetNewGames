@@ -28,6 +28,8 @@ class AppConfig:
     youtube_api_key: str
     feishu_webhook_env: str
     feishu_webhook: str
+    feishu_test_webhook_env: str
+    feishu_test_webhook: str
     request_timeout_seconds: int
     request_retry_count: int
     channels: list[ChannelConfig] = field(default_factory=list)

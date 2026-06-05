@@ -8,13 +8,13 @@ from typing import Iterable, Mapping
 
 PLATFORM_PRIORITY = {
     "google_play": 1,
-    "app_store": 1,
-    "steam": 2,
-    "regional_store": 3,
-    "third_party_store": 3,
-    "official_site": 4,
-    "landing_page": 4,
-    "other": 5,
+    "app_store": 2,
+    "steam": 3,
+    "regional_store": 4,
+    "third_party_store": 4,
+    "official_site": 5,
+    "landing_page": 5,
+    "other": 6,
     "unknown": 99,
     "rejected": 100,
 }
@@ -143,16 +143,17 @@ def select_report_rows(rows: list[dict]) -> list[dict]:
     for row in rows:
         grouped[build_dedupe_key(row)].append(row)
 
-    selected: list[dict] = []
+    selected_by_key: list[dict] = []
     for candidates in grouped.values():
-        app_store_candidates = [
-            candidate for candidate in candidates if candidate["platform"] in {"google_play", "app_store"}
-        ]
-        if app_store_candidates:
-            selected.extend(sorted(app_store_candidates, key=report_sort_key))
-            continue
-        best = min(candidates, key=report_sort_key)
-        selected.append(best)
+        selected_by_key.append(min(candidates, key=report_sort_key))
+
+    grouped_by_name: dict[str, list[dict]] = defaultdict(list)
+    for row in selected_by_key:
+        grouped_by_name[row["normalized_game_name"] or build_dedupe_key(row)].append(row)
+
+    selected: list[dict] = []
+    for candidates in grouped_by_name.values():
+        selected.append(min(candidates, key=report_sort_key))
 
     return sorted(selected, key=report_sort_key)
 

@@ -1,8 +1,7 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import { join } from "node:path";
 
-const REPORT_FILE_PREFIX = "dataeye_new_games_";
-const REPORT_FILE_SUFFIX = ".txt";
+const REPORT_FILE_REGEX = /^dataeye_new_games_company_(\d{4}-\d{2}-\d{2})\.txt$/;
 
 export async function sendFeishuTextReport(webhook: string, text: string): Promise<void> {
   const response = await fetch(webhook, {
@@ -26,12 +25,12 @@ export async function sendFeishuTextReport(webhook: string, text: string): Promi
 
 export async function resolveReportPath(outputDir: string, explicitDate?: string): Promise<string | null> {
   if (explicitDate) {
-    return join(outputDir, `${REPORT_FILE_PREFIX}${explicitDate}${REPORT_FILE_SUFFIX}`);
+    return join(outputDir, `dataeye_new_games_company_${explicitDate}.txt`);
   }
 
   const fileNames = await readdir(outputDir).catch(() => []);
   const candidates = fileNames
-    .filter((fileName) => fileName.startsWith(REPORT_FILE_PREFIX) && fileName.endsWith(REPORT_FILE_SUFFIX))
+    .filter((fileName) => REPORT_FILE_REGEX.test(fileName))
     .map((fileName) => join(outputDir, fileName));
 
   const cutoff = Date.now() - 6 * 60 * 60 * 1000;

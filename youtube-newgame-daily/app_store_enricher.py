@@ -16,13 +16,27 @@ from app_storage import get_cached_store_title, save_store_title_cache
 
 LOGGER = logging.getLogger(__name__)
 TITLE_PATTERN = re.compile(r"<title[^>]*>(.*?)</title>", re.IGNORECASE | re.DOTALL)
+META_TAG_PATTERN = re.compile(r"<meta\b[^>]*>", re.IGNORECASE | re.DOTALL)
+META_ATTR_PATTERN = re.compile(r"""([:\w-]+)\s*=\s*(['"])(.*?)\2""", re.IGNORECASE | re.DOTALL)
+OFFICIAL_STORE_LINK_TYPES = {"google_play", "app_store"}
+TITLE_REQUIRED_STORE_PLATFORMS = {"google_play", "app_store", "steam", "third_party_store", "regional_store"}
+CONTEXT_NAME_SOURCES = {"description_link_context", "package_id_context"}
 TITLE_CLEANUPS = [
+    re.compile(r"^[\u200e\u200f\s]+"),
     re.compile(r"\s*-\s*Apps on Google Play\s*$", re.IGNORECASE),
     re.compile(r"\s*-\s*Google Play 上的应用\s*$", re.IGNORECASE),
     re.compile(r"\s*-\s*Google Play上的应用\s*$", re.IGNORECASE),
     re.compile(r"\s*-\s*Google Play のアプリ\s*$", re.IGNORECASE),
     re.compile(r"\s*-\s*App Store\s*$", re.IGNORECASE),
     re.compile(r"\s*on the App Store\s*$", re.IGNORECASE),
+    re.compile(r"\s+App\s*$", re.IGNORECASE),
+    re.compile(r"\s*-\s*(?:安卓|Android|iOS|苹果)?官方(?:预约|下載|下载)\s*-\s*TapTap\s*$", re.IGNORECASE),
+    re.compile(r"\s*-\s*TapTap\s*$", re.IGNORECASE),
+    re.compile(r"\s*(?:安卓|Android)(?:版)?(?:游戏|遊戲)?APK(?:下載|下载)\s*$", re.IGNORECASE),
+    re.compile(r"\s*APK(?:下載|下载)\s*$", re.IGNORECASE),
+    re.compile(r"\s+Old Versions APK Download\s*$", re.IGNORECASE),
+    re.compile(r"\s+APK(?:s)?(?: for Android)? Download\s*$", re.IGNORECASE),
+    re.compile(r"\s+APK(?: for Android)?\s*$", re.IGNORECASE),
     re.compile(r"\s*-\s*Official Site\s*$", re.IGNORECASE),
     re.compile(r"\s*-\s*Official Website\s*$", re.IGNORECASE),
     re.compile(r"\s*-\s*Apple\s*$", re.IGNORECASE),
@@ -76,14 +90,31 @@ class AppStoreEnricher:
             return game
 
         cached = get_cached_store_title(self.connection, game.store_url)
-        if cached:
-            return apply_cached_title_result(game, cached["cleaned_name"], cached["status"])
+        if cached and not should_retry_cached_title(game, cached["status"]):
+            title, cleaned_name, status = normalize_cached_title_result(cached)
+            if (
+                title != cached["title"]
+                or cleaned_name != cached["cleaned_name"]
+                or status != cached["status"]
+            ):
+                save_store_title_cache(self.connection, game.store_url, title, cleaned_name, status)
+            return apply_cached_title_result(game, cleaned_name, status)
 
-        title, cleaned_name, status = self._fetch_page_title(game.store_url, game.game_name)
+        title, cleaned_name, status = self._fetch_page_title(
+            game.store_url,
+            game.game_name,
+            allow_fallback=not is_title_required_store_link(game),
+        )
         save_store_title_cache(self.connection, game.store_url, title, cleaned_name, status)
         return apply_cached_title_result(game, cleaned_name, status)
 
-    def _fetch_page_title(self, store_url: str, fallback_name: str) -> tuple[str, str, str]:
+    def _fetch_page_title(
+        self,
+        store_url: str,
+        fallback_name: str,
+        *,
+        allow_fallback: bool = True,
+    ) -> tuple[str, str, str]:
         last_error: Exception | None = None
         for attempt in range(1, self.retry_count + 2):
             try:
@@ -94,8 +125,10 @@ class AppStoreEnricher:
                 html_text = decode_response_text(response)
                 title = extract_html_title(html_text)
                 cleaned_name = clean_page_title(title)
-                if not cleaned_name:
+                if not cleaned_name and allow_fallback:
                     cleaned_name = derive_name_from_url(store_url) or fallback_name
+                if not cleaned_name:
+                    return title, "", "failed"
                 if is_generic_store_title(cleaned_name):
                     return title, "", "failed"
                 if is_reject_title(cleaned_name):
@@ -127,6 +160,11 @@ def apply_cached_title_result(game: ExtractedGame, cleaned_name: str, status: st
     if status == "ok" and cleaned_name and is_valid_game_name(cleaned_name):
         game.game_name = cleaned_name
         game.normalized_game_name = normalize_game_name(cleaned_name)
+        if is_title_required_store_link(game):
+            game.extracted_from = "store_page_title"
+            game.confidence = "high"
+            game.reject_reason = ""
+            return game
         if game.link_type == "non_store" and game.confidence == "low":
             if game.platform in {"third_party_store", "regional_store", "landing_page", "steam"}:
                 game.confidence = "medium"
@@ -134,6 +172,16 @@ def apply_cached_title_result(game: ExtractedGame, cleaned_name: str, status: st
             elif game.platform == "official_site" and not is_homepage_url(game.store_url):
                 game.confidence = "medium"
                 game.reject_reason = ""
+        return game
+
+    if is_title_required_store_link(game):
+        if game.extracted_from in CONTEXT_NAME_SOURCES and is_valid_game_name(game.game_name):
+            game.confidence = "medium"
+            game.reject_reason = "store_title_unavailable_context_fallback"
+            return game
+        game.confidence = "rejected"
+        game.link_type = "rejected"
+        game.reject_reason = "store_title_required"
         return game
 
     if not is_valid_game_name(game.game_name):
@@ -144,8 +192,23 @@ def apply_cached_title_result(game: ExtractedGame, cleaned_name: str, status: st
 
 
 def extract_html_title(html_text: str) -> str:
+    og_title = extract_og_title(html_text)
+    if og_title:
+        return og_title
     match = TITLE_PATTERN.search(html_text)
     return html.unescape(match.group(1).strip()) if match else ""
+
+
+def extract_og_title(html_text: str) -> str:
+    for tag in META_TAG_PATTERN.findall(html_text):
+        attrs = {
+            name.casefold(): html.unescape(value.strip())
+            for name, _quote, value in META_ATTR_PATTERN.findall(tag)
+        }
+        title_type = (attrs.get("property") or attrs.get("name") or "").casefold()
+        if title_type == "og:title" and attrs.get("content"):
+            return attrs["content"]
+    return ""
 
 
 def clean_page_title(title: str) -> str:
@@ -191,3 +254,30 @@ def is_generic_store_title(value: str) -> bool:
 def is_homepage_url(url: str) -> bool:
     parsed = urlparse(url)
     return (parsed.path or "/") in {"", "/"} and not parsed.query
+
+
+def is_official_store_link(game: ExtractedGame) -> bool:
+    return game.link_type in OFFICIAL_STORE_LINK_TYPES or game.platform in OFFICIAL_STORE_LINK_TYPES
+
+
+def is_title_required_store_link(game: ExtractedGame) -> bool:
+    return is_official_store_link(game) or game.platform in TITLE_REQUIRED_STORE_PLATFORMS
+
+
+def should_retry_cached_title(game: ExtractedGame, status: str) -> bool:
+    return is_title_required_store_link(game) and status == "failed"
+
+
+def normalize_cached_title_result(cached) -> tuple[str, str, str]:
+    title = cached["title"]
+    status = cached["status"]
+    cleaned_name = clean_page_title(title) if title else cached["cleaned_name"]
+
+    if cleaned_name:
+        if is_generic_store_title(cleaned_name):
+            return title, "", "failed"
+        if is_reject_title(cleaned_name):
+            return title, cleaned_name, "rejected"
+        return title, cleaned_name, "ok"
+
+    return title, "", status

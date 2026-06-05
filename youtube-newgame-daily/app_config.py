@@ -30,6 +30,7 @@ def load_config(project_root: Path | str | None = None) -> AppConfig:
     timezone_name = raw.get("timezone_name", "Asia/Shanghai")
     youtube_api_key_env = raw.get("youtube_api_key_env", "YOUTUBE_API_KEY")
     feishu_webhook_env = raw.get("feishu_webhook_env", "FEISHU_WEBHOOK")
+    feishu_test_webhook_env = raw.get("feishu_test_webhook_env", "FEISHU_TEST_WEBHOOK")
 
     channels = load_channels_csv(channels_file)
 
@@ -45,6 +46,8 @@ def load_config(project_root: Path | str | None = None) -> AppConfig:
         youtube_api_key=(raw.get("youtube_api_key") or os.getenv(youtube_api_key_env, "")).strip(),
         feishu_webhook_env=feishu_webhook_env,
         feishu_webhook=(raw.get("feishu_webhook") or os.getenv(feishu_webhook_env, "")).strip(),
+        feishu_test_webhook_env=feishu_test_webhook_env,
+        feishu_test_webhook=(raw.get("feishu_test_webhook") or os.getenv(feishu_test_webhook_env, "")).strip(),
         request_timeout_seconds=int(raw.get("request_timeout_seconds", 20)),
         request_retry_count=int(raw.get("request_retry_count", 3)),
         channels=channels,

@@ -13,17 +13,17 @@ from app_dates import build_date_window
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Send latest YouTube new game report to Feishu webhook.")
     parser.add_argument("--path", help="Explicit report file path")
+    parser.add_argument("--test", action="store_true", help="Send to the test Feishu webhook instead of the normal webhook")
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     config = load_config()
-    webhook = config.feishu_webhook.strip()
+    webhook, webhook_env, target_name = resolve_webhook(config, use_test=args.test)
     if not webhook:
         print(
-            "Feishu webhook is missing. Configure feishu_webhook in channels.yaml or set "
-            f"{config.feishu_webhook_env}."
+            f"Feishu {target_name} webhook is missing. Configure it in channels.yaml or set {webhook_env}."
         )
         return 1
 
@@ -39,8 +39,14 @@ def main() -> int:
         timeout=config.request_timeout_seconds,
     )
     response.raise_for_status()
-    print(f"Feishu report sent: {report_path}")
+    print(f"Feishu report sent to {target_name}: {report_path}")
     return 0
+
+
+def resolve_webhook(config, *, use_test: bool) -> tuple[str, str, str]:
+    if use_test:
+        return config.feishu_test_webhook.strip(), config.feishu_test_webhook_env, "test webhook"
+    return config.feishu_webhook.strip(), config.feishu_webhook_env, "normal webhook"
 
 
 def resolve_report_path(output_dir: Path, timezone_name: str) -> Path | None:

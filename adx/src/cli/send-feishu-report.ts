@@ -19,9 +19,9 @@ async function main(): Promise<void> {
     allowPositionals: false
   });
 
-  const webhook = process.env.FEISHU_WEBHOOK?.trim();
+  const webhook = (process.env.ADX_FEISHU_WEBHOOK ?? process.env.FEISHU_WEBHOOK)?.trim();
   if (!webhook) {
-    console.error("缺少 FEISHU_WEBHOOK，请在 .env 或环境变量中配置后再发送。");
+    console.error("缺少 ADX_FEISHU_WEBHOOK，请在 .env 或环境变量中配置后再发送。");
     process.exitCode = 1;
     return;
   }

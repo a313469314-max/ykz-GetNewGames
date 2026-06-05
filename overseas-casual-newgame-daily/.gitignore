@@ -1,0 +1,11 @@
+.env
+.auth/
+.cache/
+__pycache__/
+.pytest_cache/
+.venv/
+data/raw/*
+data/processed/*
+data/unmatched/*
+output/*
+!output/.gitkeep

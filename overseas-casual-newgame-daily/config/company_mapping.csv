@@ -1,0 +1,613 @@
+﻿match_type,match_value,canonical_company,confidence,source,note
+domain,homagames.com,Homa,high,seed,Privacy policy or official Homa domain
+dataeye_company_name,URAGA JSC,Homa,high,seed,Seen in 2026-06-01 overseas casual daily
+developer_name,URAGA JSC,Homa,high,seed,Google Play developer mapped to Homa
+dataeye_company_name,Spapes Games,Homa,medium,seed,Seen in 2026-06-02 overseas casual daily
+developer_name,Spapes Games,Homa,medium,seed,Needs periodic review
+dataeye_company_name,Dongu,Homa,medium,seed,Seen in 2026-06-02 overseas casual daily
+developer_name,Dongu,Homa,medium,seed,Needs periodic review
+dataeye_company_name,EXPLAY,Homa,medium,seed,Seen in 2026-06-02 overseas casual daily
+developer_name,EXPLAY,Homa,medium,seed,Needs periodic review
+fb_page,Contract Red,Homa,medium,seed,Observed from Art Layers creative
+fb_page,Choc Bread,Homa,medium,seed,Observed from Color Brawl creative
+dataeye_company_name,Super Battle Games,Voodoo,high,seed,Seen in 2026-06-02 overseas casual daily
+developer_name,Super Battle Games,Voodoo,high,seed,Google Play developer mapped to Voodoo
+dataeye_company_name,FYR Game,Voodoo,medium,seed,Seen in 2026-06-02 overseas casual daily
+developer_name,FYR Game,Voodoo,medium,seed,Needs periodic review
+dataeye_company_name,SpiderForce,Voodoo,medium,seed,Seen in 2026-06-02 overseas casual daily
+dataeye_company_name,Mintah Games,Voodoo,medium,seed,Seen in 2026-06-02 overseas casual daily
+dataeye_company_name,Red Two Apps (RTA Ltd),Voodoo,medium,seed,Seen in 2026-06-02 overseas casual daily
+dataeye_company_name,Hiker Games,Voodoo,medium,seed,Seen in 2026-06-02 overseas casual daily
+dataeye_company_name,HE games,Voodoo,medium,seed,Seen in 2026-06-02 overseas casual daily
+fb_page,Casual gaming challenges,Voodoo,medium,seed,Observed from Match Trip creative
+dataeye_company_name,3A YAPIM VE YAZILIM DANISMANLIK LIMITED SIRKETI,Rollic,high,seed,Seen in 2026-06-01 overseas casual daily
+developer_name,3A YAPIM VE YAZILIM DANISMANLIK LIMITED SIRKETI,Rollic,high,seed,App Store seller mapped to Rollic
+domain,fibergames.com.tr,Rollic,high,seed,FiberGames seller URL in App Store
+dataeye_company_name,Playgendary Limited,Azur,high,seed,Seen in source Excel under Azur
+developer_name,Playgendary Limited,Azur,high,seed,Google Play developer mapped to Azur in this report
+domain,newplg.dev,Azur,high,seed,Playgendary privacy/developer domain
+domain,supersonic.com,Supersonic,high,seed,Supersonic privacy domain
+dataeye_company_name,Akehiko studio,Supersonic,high,seed,Seen in 2026-06-01 overseas casual daily
+developer_name,Akehiko studio,Supersonic,high,seed,Google Play developer mapped to Supersonic
+google_developer_id,6446252978222976215,未知,high,manual_conflict_unknown,Conflict account in overseas casual daily template: Terek Gaming appears under Homa and Voodoo
+apple_artist_id,1837838690,未知,high,manual_conflict_unknown,Conflict account in overseas casual daily template: Terek Gaming OU appears under Homa and Voodoo
+seller_name,Terek Gaming OU,未知,high,manual_conflict_unknown,Conflict account in overseas casual daily template: Terek Gaming OU appears under Homa and Voodoo
+developer_name,Terek Gaming,未知,medium,manual_conflict_unknown,Conflict account in overseas casual daily template: Terek Gaming appears under Homa and Voodoo
+google_developer_id,9014292750854513915,未知,high,manual_conflict_unknown,Conflict account in overseas casual daily template: Lucky Kat appears under Homa and Voodoo
+apple_artist_id,498980984,未知,high,manual_conflict_unknown,Conflict account in overseas casual daily template: Lucky Kat Studios appears under Homa and Voodoo
+seller_name,Lucky Kat Studios,未知,high,manual_conflict_unknown,Conflict account in overseas casual daily template: Lucky Kat Studios appears under Homa and Voodoo
+developer_name,Lucky Kat Studios,未知,medium,manual_conflict_unknown,Conflict account in overseas casual daily template: Lucky Kat Studios appears under Homa and Voodoo
+apple_artist_id,1700697055,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-06: Cup Stack Flow | 2026-05-16: Orni Loop - Heist Puzzle | 2026-06-02: Pop Into Hole
+seller_name,Mehmet Fatih Sahin,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-06: Cup Stack Flow | 2026-05-16: Orni Loop - Heist Puzzle | 2026-06-02: Pop Into Hole
+developer_name,Mehmet Fatih Sahin,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-06: Cup Stack Flow | 2026-05-16: Orni Loop - Heist Puzzle | 2026-06-02: Pop Into Hole
+google_developer_id,7798478272853474773,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Art Layers
+google_developer_id,Pith Games Studio,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Hive: Hex Match Puzzle & Relax
+developer_name,Pith Games Studio,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Hive: Hex Match Puzzle & Relax
+google_developer_id,Dongu,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Drone Crowd
+google_developer_id,EXPLAY,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Bubble Monsters Quest
+google_developer_id,5217648728652553110,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Match Trip
+google_developer_id,6048395508840012133,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Boom Clash
+google_developer_id,6995024983781994066,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Marble Fever | 2026-05-12: Saw Blast | 2026-06-02: PicSort: Color Puzzle
+developer_name,Tenefic Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Marble Fever | 2026-05-12: Saw Blast | 2026-06-02: PicSort: Color Puzzle
+google_developer_id,SpiderForce,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Bumper Run
+developer_name,SpiderForce,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Bumper Run
+google_developer_id,8806764982893652635,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Tire Evolution
+developer_name,Mintah Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Tire Evolution
+google_developer_id,Red Two Apps (RTA Ltd),Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-22: Block Puzzled: Puzzle Game | 2026-06-02: Trick Shot Dude Perfect
+developer_name,Red Two Apps (RTA Ltd),Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-22: Block Puzzled: Puzzle Game | 2026-06-02: Trick Shot Dude Perfect
+google_developer_id,8020772626664092379,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Bubble Blast
+developer_name,HIKER GAMES,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-02: Bubble Blast
+google_developer_id,5950502758847378118,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-27: Beads On Pipe | 2026-05-16: Color Crowd Sort | 2026-05-19: Color Water Factory!
+developer_name,HE games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-27: Beads On Pipe | 2026-05-16: Color Crowd Sort | 2026-05-19: Color Water Factory!
+google_developer_id,6881977808987897897,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-01: Color Brawl | 2026-06-01: Lucky Arena
+google_developer_id,4614678246860437532,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-01: 💥 1000 ways to break a doll. Pick yours! ⚔️
+apple_artist_id,1493049868,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Chopping Jam | 2026-04-10: Car Out! | 2026-04-30: Candle Puzzle!
+seller_name,3A YAPIM VE YAZILIM DANISMANLIK LIMITED SIRKETI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Chopping Jam | 2026-04-10: Car Out! | 2026-04-30: Candle Puzzle!
+apple_artist_id,1884868088,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-01: Maze Dreams
+seller_name,Coskun Nizam,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-01: Maze Dreams
+developer_name,Coskun Nizam,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-01: Maze Dreams
+google_developer_id,Akehiko studio,Supersonic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-06-01: Emoji CrossWord
+google_developer_id,4634726879098090329,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Ancient Stars: Nirvana
+developer_name,Head Games Limited,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Ancient Stars: Nirvana
+google_developer_id,8109447489703036829,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Boat Evolution: Overdrive
+developer_name,212 Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Boat Evolution: Overdrive
+google_developer_id,5499360329934835582,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Egg Station - Sort Puzzle | 2026-05-15: Candy Flow - Sweet Sort | 2026-05-29: Flow Hop - Collect & Clean
+developer_name,Velha Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Egg Station - Sort Puzzle | 2026-05-15: Candy Flow - Sweet Sort | 2026-05-29: Flow Hop - Collect & Clean
+apple_artist_id,1685753630,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Chalk Snap!
+seller_name,Cortex (Apps),Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Chalk Snap!
+developer_name,Hugo Peyron,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Chalk Snap!
+google_developer_id,8126850924539441584,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Connect Pix: Match Puzzle
+developer_name,TheAppGuruz,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Connect Pix: Match Puzzle
+google_developer_id,TLC STUDIOS,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Crop Valley | 2026-05-01: Color Loop Sort | 2026-05-29: Feed The Ants
+developer_name,TLC STUDIOS,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Crop Valley | 2026-05-01: Color Loop Sort | 2026-05-29: Feed The Ants
+apple_artist_id,866646886,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Twisted Sort
+seller_name,Jan Kovac,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Twisted Sort
+developer_name,Jan Kovac,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-29: Twisted Sort
+google_developer_id,6339374846518522453,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: Beads Drop | 2026-05-29: Slide Blast Master
+developer_name,Pubtrain Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: Beads Drop | 2026-05-29: Slide Blast Master
+apple_artist_id,1723523168,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Word Decor Puzzle | 2026-04-10: Bubble Pop Jam Puzzle | 2026-05-13: Block Express Wagon
+seller_name,SIX PAWNS STUDIOS YAZILIM LIMITED SIRKETI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Word Decor Puzzle | 2026-04-10: Bubble Pop Jam Puzzle | 2026-05-13: Block Express Wagon
+developer_name,Six Pawns,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Word Decor Puzzle | 2026-04-10: Bubble Pop Jam Puzzle | 2026-05-13: Block Express Wagon
+apple_artist_id,1275119232,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Sticker Pile Merge | 2026-05-30: Layer Sand Match
+seller_name,Arda Can Kirkoc,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Sticker Pile Merge | 2026-05-30: Layer Sand Match
+developer_name,Arda Can Kirkoc,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Sticker Pile Merge | 2026-05-30: Layer Sand Match
+apple_artist_id,1772009662,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-30: Strings - Word Search
+seller_name,Frostbyte Entertainment LLC,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-30: Strings - Word Search
+developer_name,Frostbyte Entertainment LLC,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-30: Strings - Word Search
+google_developer_id,5944084772591201927,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Block Sort - Cube Puzzle | 2026-05-14: Juicy Match - Blend Fruits | 2026-05-14: Knit Match - Wool Puzzle
+developer_name,ROQ GAMES,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Block Sort - Cube Puzzle | 2026-05-14: Juicy Match - Blend Fruits | 2026-05-14: Knit Match - Wool Puzzle
+google_developer_id,8463104563926206156,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Blade Jam | 2026-05-31: Feed Fish: Color Match
+developer_name,Towzle,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Blade Jam | 2026-05-31: Feed Fish: Color Match
+apple_artist_id,1832707175,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Idle Craft Odyssey | 2026-05-28: Survival Odyssey
+seller_name,Grove Games Teknoloji Anonim Sirketi,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Idle Craft Odyssey | 2026-05-28: Survival Odyssey
+developer_name,Grove Games,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Idle Craft Odyssey | 2026-05-28: Survival Odyssey
+google_developer_id,Umur Can Gürelli,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Ice Cream Factory | 2026-05-28: Crush the Wall
+developer_name,Umur Can Gürelli,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Ice Cream Factory | 2026-05-28: Crush the Wall
+google_developer_id,9816 Interactive,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-28: Vine Arrows: Color Puzzle
+developer_name,9816 Interactive,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-28: Vine Arrows: Color Puzzle
+google_developer_id,7452742782702436312,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Thread Tangle | 2026-05-28: Ufo rush
+developer_name,Ishka Gaming,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Thread Tangle | 2026-05-28: Ufo rush
+google_developer_id,Yeapp Yazılım AŞ,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Pic Pop : Color Match | 2026-04-11: Scrape N Drop! | 2026-05-28: Bubble Bowl
+developer_name,Yeapp Yazılım AŞ,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Pic Pop : Color Match | 2026-04-11: Scrape N Drop! | 2026-05-28: Bubble Bowl
+google_developer_id,VLB,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Last Extract | 2026-05-22: Legion Surge | 2026-05-28: Newsboy Evolution
+developer_name,VLB,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Last Extract | 2026-05-22: Legion Surge | 2026-05-28: Newsboy Evolution
+google_developer_id,7522468499436108501,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Fill The Hole | 2026-05-28: Claw Match
+developer_name,FanHaptic Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Fill The Hole | 2026-05-28: Claw Match
+apple_artist_id,714804730,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-28: Cortex - Shikaku
+seller_name,Voodoo,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-28: Cortex - Shikaku
+developer_name,Voodoo,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: VolleyCraft | 2026-05-28: Cortex - Shikaku
+google_developer_id,NextLevelGamesPublishing,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-28: Roll Shooter
+developer_name,NextLevelGamesPublishing,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-28: Roll Shooter
+google_developer_id,7063729204181878069,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Blocks Drop | 2026-05-10: Conveyor Control | 2026-05-28: Stack Bounce
+developer_name,DN studios,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Blocks Drop | 2026-05-10: Conveyor Control | 2026-05-28: Stack Bounce
+google_developer_id,Omicron Technology,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-28: Spinner Royale
+developer_name,Omicron Technology,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-28: Spinner Royale
+google_developer_id,6050809987941402682,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Deck Blast | 2026-05-28: Scrape 'n' Roll
+developer_name,RAKUNiK GAMES,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Deck Blast | 2026-05-28: Scrape 'n' Roll
+apple_artist_id,1560677927,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-27: Color Car Frenzy
+seller_name,RUFF GAMES OYUN YAZILIM VE PAZARLAMA ANONIM SIRKETI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-27: Color Car Frenzy
+developer_name,RUFF GAMES OYUN YAZILIM VE PAZARLAMA ANONIM SIRKETI,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-27: Color Car Frenzy
+google_developer_id,6942318740599510142,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Campus Challenge Rush | 2026-04-02: Purrstrike | 2026-05-27: Idle Soccer Chaos
+developer_name,Darling Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Campus Challenge Rush | 2026-04-02: Purrstrike | 2026-05-27: Idle Soccer Chaos
+google_developer_id,GenI Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Farm Cut Rider 3D | 2026-04-30: Penguin Pilot: Plane Flight | 2026-05-27: Box to Bolt: Downhill Racing
+developer_name,GenI Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Farm Cut Rider 3D | 2026-04-30: Penguin Pilot: Plane Flight | 2026-05-27: Box to Bolt: Downhill Racing
+google_developer_id,Chanon Jinpisoot,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Pizza Empire | 2026-05-14: Moo Ranch | 2026-05-27: Orange Juice Factory
+developer_name,Chanon Jinpisoot,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Pizza Empire | 2026-05-14: Moo Ranch | 2026-05-27: Orange Juice Factory
+google_developer_id,Larisa Games,SayGames,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-26: Arrow Drop | 2026-05-27: Jelly Blox Escape
+developer_name,Larisa Games,SayGames,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-26: Arrow Drop | 2026-05-27: Jelly Blox Escape
+google_developer_id,5821334541811916418,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-26: Bus Parkour : School Run
+developer_name,gamebiz,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-26: Bus Parkour : School Run
+apple_artist_id,1549023239,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-25: Sand Collect Puzzle
+seller_name,Kaliba Games & Technologies Inc.,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-25: Sand Collect Puzzle
+developer_name,Kaliba Games & Technologies Inc.,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-25: Sand Collect Puzzle
+google_developer_id,5067458326591159362,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Tear Out | 2026-05-14: Taffy Snap | 2026-05-23: Hide N Snake
+developer_name,HYPERLAB OYUN YAZILIM VE PAZARLAMA ANONIM SIRKETI,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Tear Out | 2026-05-14: Taffy Snap | 2026-05-23: Hide N Snake
+google_developer_id,CorocoroGames,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-23: Bounce Drop
+developer_name,CorocoroGames,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-23: Bounce Drop
+google_developer_id,9033881164222821568,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-22: Neon Voxel Defense | 2026-05-23: Empire Rush
+developer_name,Flickle Games,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-22: Neon Voxel Defense | 2026-05-23: Empire Rush
+apple_artist_id,1375461777,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Marvelous Marble
+seller_name,Popcore GmbH,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Marvelous Marble
+developer_name,Popcore GmbH,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Marvelous Marble
+google_developer_id,interstellarnetworktechnology,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Frontline Clash
+developer_name,interstellarnetworktechnology,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Frontline Clash
+google_developer_id,9130315248106933995,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-12: Art Ball Puzzle | 2026-05-22: Fit Flow!
+developer_name,ARGOZ,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-12: Art Ball Puzzle | 2026-05-22: Fit Flow!
+google_developer_id,6984672662649845348,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Color Cannons 3D
+developer_name,Boom Games!,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Color Cannons 3D
+apple_artist_id,1799165804,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Stack It! Sorting Puzzle
+seller_name,Krzysztof Janik,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Stack It! Sorting Puzzle
+developer_name,Krzysztof Janik,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Stack It! Sorting Puzzle
+google_developer_id,9162798317371071400,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Color Jar Sort | 2026-04-24: Zoo Merge | 2026-05-22: Color Box Rush
+developer_name,JudasBrothers,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Color Jar Sort | 2026-04-24: Zoo Merge | 2026-05-22: Color Box Rush
+google_developer_id,6879926558019835955,Tapnation,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Tower Life
+developer_name,PlayFlame,Tapnation,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-22: Tower Life
+apple_artist_id,1536955498,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Matching Woof
+seller_name,ELAGAME YAZILIM ANONIM SIRKETI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Matching Woof
+developer_name,Ela Game,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Matching Woof
+google_developer_id,Amin Rezaee,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Bottle Fill
+developer_name,Amin Rezaee,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Bottle Fill
+google_developer_id,8917220217322983447,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Toy Sorting
+developer_name,Invertible Matrix,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Toy Sorting
+google_developer_id,rain.iwnl,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Pixel Shots | 2026-05-21: Fruit Flow
+developer_name,rain.iwnl,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Pixel Shots | 2026-05-21: Fruit Flow
+google_developer_id,Barbozo,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Beam Battle | 2026-04-08: Slate Hunters | 2026-05-08: Fruit Collect
+developer_name,Barbozo,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Beam Battle | 2026-04-08: Slate Hunters | 2026-05-08: Fruit Collect
+google_developer_id,"Ritz Deli Games, Inc.",Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Suika.io : Fruit Merge Chaos
+developer_name,"Ritz Deli Games, Inc.",Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Suika.io : Fruit Merge Chaos
+apple_artist_id,1472477790,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Tower Hero Showdown
+seller_name,"YOMOB INTERNATIONAL CO., LTDVistra Corporate Services Centre",Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Tower Hero Showdown
+developer_name,Yojoy,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Tower Hero Showdown
+google_developer_id,krg,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Sail Up | 2026-04-28: Epic Slayer | 2026-05-21: Mob Master
+developer_name,krg,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Sail Up | 2026-04-28: Epic Slayer | 2026-05-21: Mob Master
+google_developer_id,8977147321764398274,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Gem Block Blitz
+developer_name,CoolKats,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Gem Block Blitz
+google_developer_id,7529088041792993655,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Slingshot Blast!
+developer_name,Soulpen,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Slingshot Blast!
+google_developer_id,5910312351290771072,Tapnation,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Jigmagic Solitaire Stories
+developer_name,Sticky Play,Tapnation,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-21: Jigmagic Solitaire Stories
+google_developer_id,6534293559144564963,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-20: Hungry Dinosaurs
+developer_name,NEBİH BAŞARAN,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-20: Hungry Dinosaurs
+google_developer_id,Kolpoverse,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-05: Glitter Jam | 2026-05-20: Zen Macth Blast
+developer_name,Kolpoverse,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-05: Glitter Jam | 2026-05-20: Zen Macth Blast
+google_developer_id,5373662817709826731,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-22: Ball & Slime Roller | 2026-05-07: Ball Roller Shooter 3D | 2026-05-20: Helix Rush Smash 3D
+developer_name,waowgames,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-22: Ball & Slime Roller | 2026-05-07: Ball Roller Shooter 3D | 2026-05-20: Helix Rush Smash 3D
+google_developer_id,5009856041889675245,Tapnation,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: AI TD
+developer_name,Hot Yeti Studio OU,Tapnation,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: AI TD
+google_developer_id,8543783072383644795,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Pair Pix: Pictures Association | 2026-05-14: Ring Rescue: Color Puzzle | 2026-05-19: Sticker Master : Sort Puzzle
+developer_name,GamesTown,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Solitaire Pix Connections | 2026-04-08: Pair Pix: Pictures Association | 2026-05-14: Ring Rescue: Color Puzzle
+google_developer_id,5670978320929713948,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Cup Stack Jam | 2026-05-19: Hex Cluster Jam
+developer_name,RedLineGames,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Cup Stack Jam | 2026-05-19: Hex Cluster Jam
+google_developer_id,Dream Arrow Gameworks,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Sort N Ride
+developer_name,Dream Arrow Gameworks,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Sort N Ride
+google_developer_id,9023265211664033262,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Split Flow | 2026-05-19: Color Mosaic
+developer_name,SuperDuck Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Split Flow | 2026-05-19: Color Mosaic
+google_developer_id,HCC Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Stuff Fit! | 2026-05-19: Puff It!
+developer_name,HCC Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Stuff Fit! | 2026-05-19: Puff It!
+google_developer_id,8759488796128691996,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Color Tower Hop
+developer_name,"SUN LEAF., JSC",Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Color Tower Hop
+apple_artist_id,1834379759,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Gorge Defense
+seller_name,Anton Kotelnikov,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Gorge Defense
+developer_name,Anton Kotelnikov,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Gorge Defense
+google_developer_id,6747612790272948537,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Ball Line | 2026-04-21: Bus Deck | 2026-05-19: Halo Color
+developer_name,Phoenix DMA QFZ LLC,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Ball Line | 2026-04-21: Bus Deck | 2026-05-19: Halo Color
+google_developer_id,Smoiler,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Hex Farm Tycoon
+developer_name,Smoiler,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-19: Hex Farm Tycoon
+google_developer_id,5747760492110570212,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-18: Juicy Slice Up
+developer_name,ROOTCRAFT,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-18: Juicy Slice Up
+google_developer_id,Cosina Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Stacks Trip - Grinding Jam | 2026-05-15: Dash People - Break Through
+developer_name,Cosina Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Stacks Trip - Grinding Jam | 2026-05-15: Dash People - Break Through
+google_developer_id,Tapnplay Studio,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-15: Chomp Rush!
+developer_name,Tapnplay Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-15: Chomp Rush!
+apple_artist_id,1829967538,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-15: Marble Merge Factory
+seller_name,Nathan Westbrook,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-15: Marble Merge Factory
+developer_name,Nathan Westbrook,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-15: Marble Merge Factory
+apple_artist_id,1271094034,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Light It Up - Merge Game
+seller_name,Ozkan Yildiz,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Light It Up - Merge Game
+developer_name,Ozkan Yildiz,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Light It Up - Merge Game
+google_developer_id,8948794455350704349,Tapnation,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Stonica
+developer_name,Adeline Games,Tapnation,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Stonica
+google_developer_id,Green Knights,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Islands War: Battle Clash | 2026-05-16: Royal Wars: Color Clash
+developer_name,Green Knights,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Islands War: Battle Clash | 2026-05-16: Royal Wars: Color Clash
+google_developer_id,Youngster Studio,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Rubber Boom
+developer_name,Youngster Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Rubber Boom
+google_developer_id,Dash Games Ltd,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Twerk Royale: PvP Raids
+developer_name,Dash Games Ltd,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Twerk Royale: PvP Raids
+google_developer_id,casual Gtopia,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Doggy Shoot Blast
+developer_name,casual Gtopia,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Doggy Shoot Blast
+google_developer_id,Puura Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Block Untangle
+developer_name,Puura Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-16: Block Untangle
+google_developer_id,Vaulter Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Trash Out | 2026-05-17: Hole Order
+developer_name,Vaulter Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Trash Out | 2026-05-17: Hole Order
+apple_artist_id,1685863359,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Mob Smash | 2026-05-17: Olympush
+seller_name,Arcane Blast s.r.o.,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Mob Smash | 2026-05-17: Olympush
+developer_name,Arcane Blast,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Mob Smash | 2026-05-17: Olympush
+google_developer_id,6903842774260334691,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Coin Generals | 2026-05-10: Radar Armada | 2026-05-17: Loot Digger
+developer_name,Andriy Pidvirnyy,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Coin Generals | 2026-05-10: Radar Armada | 2026-05-17: Loot Digger
+apple_artist_id,1755609153,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Kingstack TD
+seller_name,Umut Aydin,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Kingstack TD
+developer_name,Umut Aydin,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Kingstack TD
+google_developer_id,6887911351021456165,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Coin Sort: Luna’s Revenge
+developer_name,GEM MOBILE SOFTWARE COMPANY LIMITED,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Coin Sort: Luna’s Revenge
+google_developer_id,Twoe Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Naked Wars
+developer_name,Twoe Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Naked Wars
+google_developer_id,7492937415180641321,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Skateboard Surfers
+developer_name,Pau Rau,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Skateboard Surfers
+google_developer_id,3Dinoz Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Lift Rush
+developer_name,3Dinoz Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-14: Lift Rush
+apple_artist_id,1845319426,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Age Wars | 2026-05-13: Car Battle - Idle RPG
+seller_name,Bengisu Sinem Ozkan,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Age Wars | 2026-05-13: Car Battle - Idle RPG
+developer_name,Bengisu Sinem Ozkan,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Age Wars | 2026-05-13: Car Battle - Idle RPG
+google_developer_id,5094556263820897791,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Crowd Pickup Jam
+developer_name,Takenick Innovation,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Crowd Pickup Jam
+google_developer_id,Logic Craft Puzzle Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Billiards Master: 8 Ball Pool
+developer_name,Logic Craft Puzzle Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Billiards Master: 8 Ball Pool
+google_developer_id,6971534321338009952,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Arena Clash: Legions | 2026-05-13: Tribal Clash
+developer_name,Moblazer,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Arena Clash: Legions | 2026-05-13: Tribal Clash
+google_developer_id,7260941201072062173,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Block Titans
+developer_name,Raheebeen Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Block Titans
+google_developer_id,8715487346796969849,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-28: Arrows Tap Away-Escape Puzzle | 2026-05-13: Pixel Dots Flow - color puzzle
+developer_name,RDVIndieGames,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-28: Arrows Tap Away-Escape Puzzle | 2026-05-13: Pixel Dots Flow - color puzzle
+google_developer_id,HOGO Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Color Port Jam!
+developer_name,HOGO Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Color Port Jam!
+apple_artist_id,435365746,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Orbit Destroyer
+seller_name,Andriy Pidvirnyy,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Orbit Destroyer
+developer_name,FreeS Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-13: Orbit Destroyer
+google_developer_id,4796978091078475854,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Castle Connect
+developer_name,Entiz Game Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Castle Connect
+google_developer_id,7465301311286573324,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Legion Clash
+developer_name,gm.orientalleaf,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Legion Clash
+google_developer_id,5181551933190604440,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Idle Blacksmith
+developer_name,Artemisia Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Idle Blacksmith
+google_developer_id,8499491249596053439,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Screw N Pack
+developer_name,Nimble Fox Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-12: Screw N Pack
+google_developer_id,7814115567158232929,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Clock Heroes | 2026-05-11: Planet Clash
+developer_name,Mini Game Lab Limited,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Clock Heroes | 2026-05-11: Planet Clash
+google_developer_id,5769973489061835088,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-11: Eraser Blast
+developer_name,Tee Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-11: Eraser Blast
+google_developer_id,6603189284226288141,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Candy Fall | 2026-04-09: Cut Out! | 2026-04-09: Puff Party
+developer_name,Another World Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Candy Fall | 2026-04-09: Cut Out! | 2026-04-09: Puff Party
+google_developer_id,2F Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-10: Arrow Rush
+developer_name,2F Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-10: Arrow Rush
+apple_artist_id,1330491241,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Idle Trash Masters
+seller_name,Valeriu Rusu,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Idle Trash Masters
+developer_name,Valeriu Rusu,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Idle Trash Masters
+google_developer_id,5918575898115697734,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Factory Rush
+developer_name,DecoD Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Factory Rush
+google_developer_id,8173090495744578265,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-26: Wash Factory | 2026-05-08: Letter Factory
+developer_name,Pixel Envision Ltd.,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-26: Wash Factory | 2026-05-08: Letter Factory
+google_developer_id,5469309296607849102,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Knife Heroes
+developer_name,Cubequad,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Knife Heroes
+google_developer_id,7106398721490292222,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Color Crush Lab | 2026-05-08: Sticky Sort
+developer_name,Elixir Gamelabs LLC,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Color Crush Lab | 2026-05-08: Sticky Sort
+google_developer_id,Keen on Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Tiny Islands
+developer_name,Keen on Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-08: Tiny Islands
+google_developer_id,MOHIST FUN Co  Limited,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Roulette War
+developer_name,MOHIST FUN Co  Limited,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Roulette War
+google_developer_id,8966136906340943582,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Marble Miner
+developer_name,Minder Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Marble Miner
+google_developer_id,6822042546515108101,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Category Tiles
+developer_name,DodoLabs,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Category Tiles
+google_developer_id,5834580255032174373,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Connect Tower – Match & Sort
+developer_name,Borofpani,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Connect Tower – Match & Sort
+google_developer_id,Alexandr Grebennicov,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Merge & Blast
+developer_name,Alexandr Grebennicov,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Merge & Blast
+apple_artist_id,1578686841,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Box Puzzle Sort | 2026-05-07: Street Food Fever!
+seller_name,Marula Games OU,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Box Puzzle Sort | 2026-05-07: Street Food Fever!
+developer_name,Marula Games OU,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Box Puzzle Sort | 2026-05-07: Street Food Fever!
+apple_artist_id,1440148721,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Marble Tea Loop
+seller_name,Bugbomb sp z oo,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Marble Tea Loop
+developer_name,Bugbomb,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-07: Marble Tea Loop
+google_developer_id,6585149688255996771,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-06: Room Raiders
+developer_name,Eternal Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-06: Room Raiders
+google_developer_id,GAEA GAMES,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-06: Card Match 3D
+developer_name,GAEA GAMES,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-06: Card Match 3D
+google_developer_id,Sergii Nagin,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-06: Sweet Bubbles!
+developer_name,Sergii Nagin,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-06: Sweet Bubbles!
+google_developer_id,PHX Software Development,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-28: Scratch Them Out! | 2026-05-04: Pile of Letters
+developer_name,PHX Software Development,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-28: Scratch Them Out! | 2026-05-04: Pile of Letters
+google_developer_id,5047635164378159180,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-01: Bugs & Balls: Roguelike
+developer_name,Akalın Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-05-01: Bugs & Balls: Roguelike
+google_developer_id,RojenOnat,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-28: Passenger Rush | 2026-05-01: VoxelRush
+developer_name,RojenOnat,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-28: Passenger Rush | 2026-05-01: VoxelRush
+apple_artist_id,1648094385,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Energy-Nexus | 2026-05-01: Circle Kingdoms
+seller_name,Gameloops,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Energy-Nexus | 2026-05-01: Circle Kingdoms
+developer_name,Gameloops,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Energy-Nexus | 2026-05-01: Circle Kingdoms
+google_developer_id,5420854307491889510,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Marble Jam! | 2026-04-10: Froggy Loop: Screw Puzzle | 2026-05-01: Marble Fever : ASMR puzzle
+developer_name,NBSari,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Marble Jam! | 2026-04-10: Froggy Loop: Screw Puzzle | 2026-05-01: Marble Fever : ASMR puzzle
+google_developer_id,VOODOO,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: VolleyCraft
+google_developer_id,7730750421567322172,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: Flying Evolution
+developer_name,Sachin Birajdar,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: Flying Evolution
+google_developer_id,Abstratum,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: Laser Mosaic
+developer_name,Abstratum,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: Laser Mosaic
+google_developer_id,Moonveil Entertainment,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: Slice Puzzle: Block fit
+developer_name,Moonveil Entertainment,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-29: Slice Puzzle: Block fit
+google_developer_id,4629782579305846830,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Galaxy Division: Space Battles | 2026-04-29: 體驗終極海戰快感！
+developer_name,Armada Forge Games,Azur,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Galaxy Division: Space Battles | 2026-04-29: 體驗終極海戰快感！
+google_developer_id,Oleksandr Bivziuk,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Bits Drop
+developer_name,Oleksandr Bivziuk,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Bits Drop
+google_developer_id,Milkshake Play,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Demolish 3D
+developer_name,Milkshake Play,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Demolish 3D
+apple_artist_id,1749329958,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Island Conquest: Hero Battle
+seller_name,Jorge Seco,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Island Conquest: Hero Battle
+developer_name,Jorge Seco,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Island Conquest: Hero Battle
+google_developer_id,IllimaniEuropeo,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Island Conquest: Hero Battle
+developer_name,IllimaniEuropeo,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Island Conquest: Hero Battle
+google_developer_id,7945041308701688258,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Blob Sort
+developer_name,Funlab Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Blob Sort
+google_developer_id,RED MOON TECHNOLOGY,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Marble Loop | 2026-04-30: President Punch: Fighting Game
+developer_name,RED MOON TECHNOLOGY,Azur,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Marble Loop | 2026-04-30: President Punch: Fighting Game
+apple_artist_id,1838341751,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Flow Fill!
+seller_name,FUNDORA YAZILIM PAZARLAMA VE TICARET LIMITED SIRKETI,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Flow Fill!
+developer_name,Fundora Games,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Flow Fill!
+google_developer_id,Sneet,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Turbo Up: Car & Plane Racing
+developer_name,Sneet,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-30: Turbo Up: Car & Plane Racing
+google_developer_id,Margin Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-28: Jelly Words!
+developer_name,Margin Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-28: Jelly Words!
+google_developer_id,5210983186684467521,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-27: Solitaire Card Merge
+developer_name,VectorPlay Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-27: Solitaire Card Merge
+apple_artist_id,1478916023,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: State Connect: Traffic Control
+seller_name,AI GAMES FZ LLC,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: State Connect: Traffic Control
+developer_name,AI Games FZ,Azur,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: State Connect: Traffic Control
+google_developer_id,6002256464890605059,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Hold the Bridge
+developer_name,SpaceTimer,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Hold the Bridge
+apple_artist_id,1489954784,Voodoo,high,excel_template_account,"Developer account from overseas casual daily template; examples: 2026-04-24: I, The One 2 - Fighting Game"
+seller_name,ALIAKSEI MAS,Voodoo,high,excel_template_account,"Developer account from overseas casual daily template; examples: 2026-04-24: I, The One 2 - Fighting Game"
+developer_name,ALIAKSEI MAS,Voodoo,medium,excel_template_account,"Developer account from overseas casual daily template; examples: 2026-04-24: I, The One 2 - Fighting Game"
+apple_artist_id,1493345618,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Bloom Bloom: Flower Sort
+seller_name,Fatih Can Temel,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Bloom Bloom: Flower Sort
+developer_name,Fatih Can Temel,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Bloom Bloom: Flower Sort
+google_developer_id,9014292750854513915,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Hex Royale
+developer_name,Lucky Kat,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Hex Royale
+google_developer_id,Lusor Studio,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Color Planet Sort
+developer_name,Lusor Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-24: Color Planet Sort
+apple_artist_id,1333001126,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Fiesta Clash
+seller_name,Sebastien Grimaud,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Fiesta Clash
+developer_name,Sebastien Grimaud,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Fiesta Clash
+google_developer_id,7414586314639230410,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Solari Shooter
+developer_name,Manh Cuong Lucas,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Solari Shooter
+google_developer_id,FOXYCORE LLC,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Hex Attack
+developer_name,FOXYCORE LLC,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Hex Attack
+apple_artist_id,548626710,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Gunship Raid
+seller_name,"Shanghai FutureBright Network Technology Co., Ltd",Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Gunship Raid
+developer_name,FutureBright,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Gunship Raid
+google_developer_id,KayruuGames,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: MagneRush
+developer_name,KayruuGames,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: MagneRush
+google_developer_id,asp gam,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: HeroesAndZombies
+developer_name,asp gam,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: HeroesAndZombies
+google_developer_id,6470932238102030350,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Marble Connect
+developer_name,Furtle Game,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Marble Connect
+google_developer_id,8709265297760689744,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Candy Drop | 2026-04-25: Cubes In Hole
+developer_name,PivDev,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Candy Drop | 2026-04-25: Cubes In Hole
+apple_artist_id,1770013763,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Poppy Puffs!
+seller_name,ICONIC GAMES OYUN TEKNOLOJILERI VE YAZILIM ANONIM SIRKETI,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Poppy Puffs!
+developer_name,Iconic Games,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-25: Poppy Puffs!
+google_developer_id,Yoki Studio,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-26: Puzzle Morph
+developer_name,Yoki Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-26: Puzzle Morph
+apple_artist_id,1296347323,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Train Simulator 2 | 2026-04-26: Pocket Tales: Survival Game
+seller_name,AZUR INTERACTIVE GAMES LIMITED,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Train Simulator 2 | 2026-04-26: Pocket Tales: Survival Game
+developer_name,Azur Interactive Games Limited,Azur,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: PLAY NOW ! ! ! | 2026-04-01: Train Simulator 2 | 2026-04-26: Pocket Tales: Survival Game
+google_developer_id,8149791665541446457,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Card Pop - Pixel Art
+developer_name,AlphaDen,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Card Pop - Pixel Art
+google_developer_id,6840635802702667881,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Idle Trash Masters
+developer_name,Petru Postolachi,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Idle Trash Masters
+google_developer_id,Unik Corn,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Fiesta Clash
+developer_name,Unik Corn,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Fiesta Clash
+apple_artist_id,1538418070,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: CakeLoop
+seller_name,国新 夏,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: CakeLoop
+developer_name,国新 夏,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: CakeLoop
+apple_artist_id,1508492426,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Wall Brawl - Tower Defense TD
+seller_name,HOMA GAMES,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Wall Brawl - Tower Defense TD
+developer_name,HOMA GAMES,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-23: Wall Brawl - Tower Defense TD
+google_developer_id,6429046319365901558,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-22: Sticker Mahjong
+developer_name,Tito Games Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-22: Sticker Mahjong
+apple_artist_id,1021834727,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Space Grid: Build & Battle
+seller_name,政 庾,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Space Grid: Build & Battle
+developer_name,政 庾,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Space Grid: Build & Battle
+google_developer_id,9220540019408635494,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Mark Ops
+developer_name,HAVY Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Mark Ops
+google_developer_id,5984366894040117197,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Spin and Defend
+developer_name,Arsanesia,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Spin and Defend
+apple_artist_id,1502817107,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Coin Load Jam
+seller_name,Kevin Kuelbag,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Coin Load Jam
+developer_name,Kevin Kuelbag,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-21: Coin Load Jam
+google_developer_id,Mankrik,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Tap to PLAY! | 2026-04-13: ZED – Zombie Enemy Destruction | 2026-04-14: Sort Mart
+developer_name,Mankrik,Azur,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Tap to PLAY! | 2026-04-13: ZED – Zombie Enemy Destruction | 2026-04-14: Sort Mart
+apple_artist_id,1452111779,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Cracker Head
+seller_name,Rollic Games Oyun Yazilim ve Pazarlama Anonim Sirketi,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Cracker Head
+developer_name,Rollic Games,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Cracker Head
+apple_artist_id,1777206236,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Popper Out
+seller_name,HOLAGO BILISIM TEKNOLOJILERI YAZILIM DANISMANLIK TICARET ANONIM SIRKETI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Popper Out
+developer_name,Holago Games,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Popper Out
+google_developer_id,6463550950233049864,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Shape Match: Color Puzzle
+developer_name,Alcore games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Shape Match: Color Puzzle
+google_developer_id,悠穀網絡,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Sea Hero Go
+developer_name,悠穀網絡,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Sea Hero Go
+google_developer_id,Ksa Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Car Flip
+developer_name,Ksa Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Car Flip
+google_developer_id,7771534416228897042,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Tower Tower
+developer_name,Superstar.Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Tower Tower
+google_developer_id,5117165114440330129,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Stickly: Category Sorting Game
+developer_name,LR Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Stickly: Category Sorting Game
+apple_artist_id,1870981910,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Sort the Cats
+seller_name,Nikita Silchenko,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Sort the Cats
+developer_name,Nikita Silchenko,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Sort the Cats
+apple_artist_id,1586953040,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Castle Rivals
+seller_name,Salt Castle Studio GmbH,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Castle Rivals
+developer_name,Salt Castle Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Castle Rivals
+google_developer_id,Simple Gear Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Idle Bounce Factory
+developer_name,Simple Gear Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-14: Idle Bounce Factory
+google_developer_id,Loose Gear,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Line Break
+developer_name,Loose Gear,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Line Break
+google_developer_id,Cameo Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Breach Protocol
+developer_name,Cameo Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Breach Protocol
+apple_artist_id,1615757652,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Marble Pack
+seller_name,tiplay studio Oyun ve Teknoloji Anonim Sirketi,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Marble Pack
+developer_name,tiplay studio Oyun ve Teknoloji Anonim Sirketi,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-13: Marble Pack
+apple_artist_id,1543346364,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-12: Fill Factory 3D
+seller_name,ZiNKY OYUN YAZILIM ANONiM SiRKETi,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-12: Fill Factory 3D
+developer_name,ZiNKY OYUN YAZILIM ANONiM SiRKETi,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-12: Fill Factory 3D
+apple_artist_id,1881914874,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-12: Connect Up!
+seller_name,Mintpop Oyun Anonim Sirketi,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-12: Connect Up!
+developer_name,Mintpop Oyun Anonim Sirketi,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-12: Connect Up!
+google_developer_id,4839522060835205899,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-11: Pirate Rivals
+developer_name,nether games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-11: Pirate Rivals
+google_developer_id,8327556688382249875,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-11: Block Flow 3D
+developer_name,Starry Vision,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-11: Block Flow 3D
+google_developer_id,6123276404095050173,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-11: 360 War Shot
+developer_name,PlayGOka games,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-11: 360 War Shot
+apple_artist_id,1777584946,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-11: Marble Drops
+seller_name,Bugra Kakluk,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-11: Marble Drops
+developer_name,Bugra Kakluk,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-11: Marble Drops
+apple_artist_id,947462912,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Screw Nut Puzzle | 2026-04-01: Wagon Crew | 2026-04-11: Circle Way
+seller_name,BROBABIL IC VE DIS TICARET LTD STI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Screw Nut Puzzle | 2026-04-01: Wagon Crew | 2026-04-11: Circle Way
+developer_name,Babil Studios,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Screw Nut Puzzle | 2026-04-01: Wagon Crew | 2026-04-11: Circle Way
+apple_artist_id,1377644184,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Sand Out!
+seller_name,UNCOSOFT YAZILIM A.S.,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Sand Out!
+developer_name,UNCOSOFT,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Sand Out!
+apple_artist_id,1488883465,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Planets (game)
+seller_name,Oksana Voloshyna,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Planets (game)
+developer_name,Oksana Voloshyna,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Planets (game)
+apple_artist_id,1853478529,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Brick Breaker Jam
+seller_name,Hung Dinh,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Brick Breaker Jam
+developer_name,Hung Dinh,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-10: Brick Breaker Jam
+apple_artist_id,1531671848,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Match Mania!
+seller_name,Lost Panda Games Oyun Yazilim Bilisim Teknolojileri Ticaret Anonim Sirketi,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Match Mania!
+developer_name,Lost Panda Games Oyun Yazilim Bilisim Teknolojileri Ticaret Anonim Sirketi,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Match Mania!
+apple_artist_id,1330662150,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Fluid Turrets
+seller_name,Lutfi Baykan,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Fluid Turrets
+developer_name,Lutfi Baykan,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Fluid Turrets
+apple_artist_id,1807747400,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Pac Snake
+seller_name,ELECTRA GAMES BILISIM TEKNOLOJILERI LIMITED SIRKETI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Pac Snake
+developer_name,Electra Games,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Pac Snake
+google_developer_id,BREW GAMES,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Warship Master Arena!
+developer_name,BREW GAMES,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Warship Master Arena!
+apple_artist_id,1564476450,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Warship Master Arena!
+seller_name,BREW OYUN YAZILIM VE PAZARLAMA ANONIM SIRKETI,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Warship Master Arena!
+google_developer_id,Double Core,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Grind Blocks
+developer_name,Double Core,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Grind Blocks
+apple_artist_id,1601984095,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-05: FPV Drone Simulator: PvP Arena | 2026-04-05: Trench Warfare: WW1 Front | 2026-04-09: UBoat Commander
+seller_name,Ivan Trafimovich,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-05: FPV Drone Simulator: PvP Arena | 2026-04-05: Trench Warfare: WW1 Front | 2026-04-09: UBoat Commander
+developer_name,Ivan Trafimovich,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-05: FPV Drone Simulator: PvP Arena | 2026-04-05: Trench Warfare: WW1 Front | 2026-04-09: UBoat Commander
+google_developer_id,9070567566630920410,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Bullet Test
+developer_name,Cybernaut Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Bullet Test
+google_developer_id,4656343638685426415,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Bullet Heroes: TD RPG Shooter
+developer_name,Homa,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Bullet Heroes: TD RPG Shooter
+google_developer_id,7472459166510457223,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Fort Merge - PVP battle
+developer_name,CTT Production,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-09: Fort Merge - PVP battle
+apple_artist_id,1780812381,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: SWAGTOONS - Anime Short Drama
+seller_name,SWAG GLOBAL FZCO,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: SWAGTOONS - Anime Short Drama
+developer_name,SWAG GLOBAL,Azur,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: SWAGTOONS: Anime Drama Shorts | 2026-04-08: SWAGTOONS - Anime Short Drama
+apple_artist_id,1526018818,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Endless Puncher
+seller_name,FUBU GAMES OYUN YAZILIM VE BILGI TEKNOLOJILERI TICARET LIMITED SIRKETI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Endless Puncher
+developer_name,FUBU GAMES OYUN YAZILIM VE BILGI TEKNOLOJILERI TICARET LIMITED SIRKETI,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Endless Puncher
+apple_artist_id,1551847165,SayGames,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Hidden Association - 3D Puzzle
+seller_name,SayGames LTD,SayGames,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Hidden Association - 3D Puzzle
+developer_name,SayGames LTD,SayGames,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Hidden Association - 3D Puzzle
+apple_artist_id,1715953720,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: FightCardClash
+seller_name,江丰 刘,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: FightCardClash
+developer_name,江丰 刘,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: FightCardClash
+google_developer_id,WS LTD,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Block Truck
+developer_name,WS LTD,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-08: Block Truck
+google_developer_id,Fun Games Teknoloji,Tapnation,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Smoothie Flow: Fruit Sort
+developer_name,Fun Games Teknoloji,Tapnation,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Smoothie Flow: Fruit Sort
+google_developer_id,6697517731349600868,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Apocalypse Drive: Zombie Game
+developer_name,Anis Ben Salah,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Apocalypse Drive: Zombie Game
+google_developer_id,Leotive Studio,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Fit Blast: Shipping Jam
+developer_name,Leotive Studio,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Fit Blast: Shipping Jam
+google_developer_id,4943543576579848267,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Arrow Out | 2026-04-07: Idle Pizza Tycoon
+developer_name,Hyper Lab,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: Arrow Out | 2026-04-07: Idle Pizza Tycoon
+google_developer_id,SWAG GLOBAL,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: SWAGTOONS: Anime Drama Shorts
+apple_artist_id,1631801659,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: People Match!
+seller_name,Serenico Labs LLP,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: People Match!
+developer_name,Serenico Labs,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-07: People Match!
+apple_artist_id,1795423825,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Holed Blocks
+seller_name,Cigdem Baran,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Holed Blocks
+developer_name,Cigdem Baran,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Holed Blocks
+apple_artist_id,1755889727,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Spline Loop
+seller_name,IMAGINARY WORLDS YAZILIM VE BILGISAYAR TICARET ITHALAT IHRACAT ANONIM SIRKETI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Spline Loop
+developer_name,Imaginary Worlds Inc.,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Spline Loop
+apple_artist_id,1780823404,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Liquid Loop
+seller_name,Sincapp Games Yazilim Limited Sirketi,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Liquid Loop
+developer_name,Sincapp Games,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Liquid Loop
+google_developer_id,8603726619721332405,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Laundry Simulator
+developer_name,MVS - FZCO,Azur,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Laundry Simulator
+google_developer_id,Mishi Games Studio,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Car Stunt Games 3D Racing Game
+developer_name,Mishi Games Studio,Azur,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-06: Car Stunt Games 3D Racing Game
+apple_artist_id,1548290415,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Block Match Jam
+seller_name,Wixot Studios Limited,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Block Match Jam
+developer_name,Wixot Studios,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Block Match Jam
+apple_artist_id,1510149782,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Solid Line
+seller_name,DK BILGI TEKNOLOJILERI ANONIM SIRKETI,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Solid Line
+developer_name,DK Bilgi Teknolojileri,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Solid Line
+apple_artist_id,1635111526,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Slither Split
+seller_name,Ege Sinan Kilic,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Slither Split
+developer_name,Ege Sinan Kilic,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Slither Split
+apple_artist_id,1061530262,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Crush Factory! | 2026-04-04: Jigsolayer
+seller_name,Duykan Bakay,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Crush Factory! | 2026-04-04: Jigsolayer
+developer_name,Duykan Bakay,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Crush Factory! | 2026-04-04: Jigsolayer
+apple_artist_id,1847966967,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Letter Cubes
+seller_name,Fat Cat With a Hat,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Letter Cubes
+developer_name,Fat Cat With a Hat,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Letter Cubes
+google_developer_id,GlitchTech,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Queue Panic: Sorting Puzzle
+developer_name,GlitchTech,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Queue Panic: Sorting Puzzle
+apple_artist_id,1503888821,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Pool Loop: Collection Puzzle
+seller_name,Huseyin Bener Bozkurt,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Pool Loop: Collection Puzzle
+developer_name,Huseyin Bener Bozkurt,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-04: Pool Loop: Collection Puzzle
+apple_artist_id,1437128903,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Push Em Hole
+seller_name,Two4Tea,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Push Em Hole
+developer_name,Two4Tea,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Hungry Snake: Fruit Hunt | 2026-04-02: Push Em Hole
+google_developer_id,5423245935834951416,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Screw Master: Pixel Art
+developer_name,NovaEra,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Screw Master: Pixel Art
+apple_artist_id,1694890040,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Solitaire Pix Connections
+seller_name,AppGuruz,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Solitaire Pix Connections
+google_developer_id,7658057387855534385,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Duck Flow: Color Loop!
+developer_name,AnonyMonkeys,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Duck Flow: Color Loop!
+google_developer_id,Two4tea,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Hungry Snake: Fruit Hunt | 2026-04-02: Push Em Hole
+apple_artist_id,1435065838,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Jelly Blobs
+seller_name,Svyatoslav Fedoriv,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Jelly Blobs
+developer_name,Svyatoslav Fedoriv,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Jelly Blobs
+apple_artist_id,1815331858,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Froggy Sort!
+seller_name,Artsem Malinouski,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Froggy Sort!
+developer_name,Artsem Malinouski,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Froggy Sort!
+google_developer_id,Hot Chili Games,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Path Raiders
+developer_name,Hot Chili Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Path Raiders
+google_developer_id,8298422725740624857,Voodoo,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Jigverse - Solitaire Puzzle
+developer_name,The Vayuputra Games,Voodoo,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-02: Jigverse - Solitaire Puzzle
+apple_artist_id,1814146512,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Hexa Stack 3D! | 2026-04-02: Elevator Crowd
+seller_name,Muammer Uslu,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Hexa Stack 3D! | 2026-04-02: Elevator Crowd
+developer_name,Muammer Uslu,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Hexa Stack 3D! | 2026-04-02: Elevator Crowd
+google_developer_id,Hypha Interactive,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Luma Grid : Block Puzzle
+developer_name,Hypha Interactive,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-04-01: Luma Grid : Block Puzzle
+google_developer_id,8232174611457920989,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Jigsolitaire Art Puzzle | 2026-03-31: SWAT Shooter Police Action FPS
+developer_name,CASUAL AZUR GAMES,Azur,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Jigsolitaire Art Puzzle | 2026-03-31: SWAT Shooter Police Action FPS
+google_developer_id,5464069849262017456,Azur,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: PLAY NOW ! ! !
+apple_artist_id,1584808181,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Bounce Jam
+seller_name,Mercimek Corbasi,Homa,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Bounce Jam
+developer_name,Mercimek Corbasi,Homa,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Bounce Jam
+apple_artist_id,1629006728,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Lock Tangle
+seller_name,Can Hulagu,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Lock Tangle
+developer_name,Can Hulagu,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Lock Tangle
+apple_artist_id,1485317310,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Jelly Hole 3D
+seller_name,Ozan Kasikci,Rollic,high,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Jelly Hole 3D
+developer_name,Ozan Kasikci,Rollic,medium,excel_template_account,Developer account from overseas casual daily template; examples: 2026-03-31: Jelly Hole 3D

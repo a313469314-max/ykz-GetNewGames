@@ -12,8 +12,14 @@ STORE_URL_PATTERN = re.compile(r"https?://[^\s<>()]+", re.IGNORECASE)
 GOOGLE_PLAY_PATTERN = re.compile(r"play\.google\.com/store/apps/details", re.IGNORECASE)
 APP_STORE_PATTERN = re.compile(r"apps\.apple\.com(?:/[^/\s]+)*/app(?:/[^/\s]+)?/id(\d+)", re.IGNORECASE)
 STEAM_PATTERN = re.compile(r"store\.steampowered\.com/app/\d+", re.IGNORECASE)
+OFFICIAL_STORE_LINK_TYPES = {"google_play", "app_store"}
+TITLE_REQUIRED_STORE_PLATFORMS = {"google_play", "app_store", "steam", "third_party_store", "regional_store"}
 PACKAGE_ID_PATTERN = re.compile(
     r"\b((?:com|net|org|io|co|me|games)\.[A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+){1,})\b"
+)
+PACKAGE_ID_SEGMENT_PATTERN = re.compile(
+    r"^(?:com|net|org|io|co|me|games)\.[A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+){1,}$",
+    re.IGNORECASE,
 )
 HASHTAG_PATTERN = re.compile(r"#\w+")
 MARKETING_TAIL_PATTERN = re.compile(
@@ -102,6 +108,8 @@ GENERIC_LINK_NAMES = {
 THIRD_PARTY_STORE_DOMAINS = {
     "www.taptap.io",
     "taptap.io",
+    "www.taptap.cn",
+    "taptap.cn",
     "www.qoo-app.com",
     "qoo-app.com",
     "apkpure.com",
@@ -156,8 +164,15 @@ NON_STORE_SIGNAL_WORDS = {
 INVALID_NAME_PATTERNS = [
     re.compile(r"^\s*download\b", re.IGNORECASE),
     re.compile(r"\bapk\b", re.IGNORECASE),
-    re.compile(r"^\s*ios\s*$", re.IGNORECASE),
-    re.compile(r"^\s*android\s*$", re.IGNORECASE),
+    re.compile(r"^[\s\ufe0f]*(?:pc|ios|android|iphone|ipad)[\s\ufe0f]*$", re.IGNORECASE),
+    re.compile(r"^[^\w\u4e00-\u9fff]*(?:pc|ios|android|iphone|ipad)[^\w\u4e00-\u9fff]*$", re.IGNORECASE),
+    re.compile(r"^\s*size\s*[:：]?\s*[\d,.]+\s*(?:kb|mb|gb|tb|k|m|g|t)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*[\d,.]+\s*(?:kb|mb|gb|tb|k|m|g|t)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:version|updated|update|requires|developer|publisher)\s*[:：]", re.IGNORECASE),
+    re.compile(r"^\s*(?:大小|版本|更新|開發商|开发商|發行商|发行商)\s*[:：]"),
+    re.compile(r"^\s*(?:android|ios|iphone|ipad|pc)\s*[:：]\s*(?:tba|soon|coming soon|未定|待定|暂无|暫無)?\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:online/offline|online|offline)\s*[:：]", re.IGNORECASE),
+    re.compile(r"^\s*early access\s*$", re.IGNORECASE),
     re.compile(r"^\s*join the\b", re.IGNORECASE),
     re.compile(r"save\s+\d+%", re.IGNORECASE),
     re.compile(r"testflight", re.IGNORECASE),
@@ -181,12 +196,11 @@ def extract_games_from_video(video: VideoRecord) -> list[ExtractedGame]:
         if not urls:
             continue
 
-        candidate_names = build_name_candidates(lines, index, video.title)
         for raw_url in urls:
             if raw_url in seen_urls:
                 continue
             seen_urls.add(raw_url)
-            extracted.append(build_candidate_from_url(video, lines, index, raw_url, candidate_names))
+            extracted.append(build_candidate_from_url(video, lines, index, raw_url))
 
     if extracted:
         return dedupe_games_by_store_url(extracted)
@@ -219,10 +233,12 @@ def build_candidate_from_url(
     lines: list[str],
     line_index: int,
     store_url: str,
-    candidate_names: list[str],
 ) -> ExtractedGame:
     classification = classify_url(store_url)
-    best_name = select_best_name(candidate_names)
+    context_name = select_best_name(build_context_name_candidates(lines, line_index))
+    fallback_name = fallback_game_name(video.title)
+    best_name = context_name or fallback_name
+    extracted_from = "description_link_context" if context_name else "video_title_fallback"
 
     if classification["reject"]:
         reject_name = best_name or fallback_game_name(video.video_title if hasattr(video, "video_title") else video.title)
@@ -233,14 +249,16 @@ def build_candidate_from_url(
             package_id=classification["package_id"],
             apple_app_id=classification["apple_app_id"],
             platform=classification["platform"],
-            extracted_from="description_link_context",
+            extracted_from=extracted_from,
             link_type="rejected",
             confidence="rejected",
             reject_reason=classification["reject_reason"],
         )
 
-    name = best_name or fallback_game_name(video.title)
+    name = best_name
+    is_title_required_store = is_title_required_store_classification(classification)
     if not is_valid_game_name(name):
+        link_type = classification["link_type"] if is_title_required_store else "rejected"
         return create_game(
             video=video,
             game_name=name or "",
@@ -248,15 +266,24 @@ def build_candidate_from_url(
             package_id=classification["package_id"],
             apple_app_id=classification["apple_app_id"],
             platform=classification["platform"],
-            extracted_from="description_link_context",
-            link_type="rejected",
-            confidence="rejected" if classification["link_type"] != "google_play" and classification["link_type"] != "app_store" else "low",
-            reject_reason="invalid_game_name",
+            extracted_from=extracted_from,
+            link_type=link_type,
+            confidence="low" if is_title_required_store else "rejected",
+            reject_reason="store_title_required" if is_title_required_store else "invalid_game_name",
         )
 
     confidence = classification["base_confidence"]
-    if classification["link_type"] == "non_store" and not has_non_store_context_signal(lines, line_index, name):
+    reject_reason = ""
+    if is_title_required_store:
         confidence = "low"
+        reject_reason = "store_title_required"
+    if (
+        classification["link_type"] == "non_store"
+        and not is_title_required_store
+        and not has_non_store_context_signal(lines, line_index, name)
+    ):
+        confidence = "low"
+        reject_reason = "weak_non_store_context"
 
     return create_game(
         video=video,
@@ -265,10 +292,10 @@ def build_candidate_from_url(
         package_id=classification["package_id"],
         apple_app_id=classification["apple_app_id"],
         platform=classification["platform"],
-        extracted_from="description_link_context",
+        extracted_from=extracted_from,
         link_type=classification["link_type"],
         confidence=confidence,
-        reject_reason="" if confidence in {"high", "medium"} else "weak_non_store_context",
+        reject_reason=reject_reason,
     )
 
 
@@ -282,10 +309,11 @@ def extract_games_from_package_ids(video: VideoRecord, lines: list[str]) -> list
             if normalized_package in seen_packages:
                 continue
             seen_packages.add(normalized_package)
-            candidate_names = build_name_candidates(lines, index, video.title)
-            game_name = select_best_name(candidate_names) or fallback_game_name(video.title)
-            confidence = "medium" if is_valid_game_name(game_name) else "low"
-            reject_reason = "" if confidence == "medium" else "invalid_game_name"
+            context_name = select_best_name(build_context_name_candidates(lines, index))
+            game_name = context_name or fallback_game_name(video.title)
+            confidence = "low"
+            reject_reason = "store_title_required"
+            extracted_from = "package_id_context" if context_name else "package_id_fallback"
             results.append(
                 create_game(
                     video=video,
@@ -294,7 +322,7 @@ def extract_games_from_package_ids(video: VideoRecord, lines: list[str]) -> list
                     package_id=normalized_package,
                     apple_app_id="",
                     platform="google_play",
-                    extracted_from="package_id_fallback",
+                    extracted_from=extracted_from,
                     link_type="google_play",
                     confidence=confidence,
                     reject_reason=reject_reason,
@@ -305,6 +333,14 @@ def extract_games_from_package_ids(video: VideoRecord, lines: list[str]) -> list
 
 
 def build_name_candidates(lines: list[str], line_index: int, video_title: str) -> list[str]:
+    candidates = build_context_name_candidates(lines, line_index)
+    fallback = fallback_game_name(video_title)
+    if fallback:
+        candidates.append(fallback)
+    return candidates
+
+
+def build_context_name_candidates(lines: list[str], line_index: int) -> list[str]:
     indices = [line_index, line_index - 1, line_index + 1, line_index - 2, line_index + 2]
     candidates: list[str] = []
     for idx in indices:
@@ -312,9 +348,6 @@ def build_name_candidates(lines: list[str], line_index: int, video_title: str) -
             cleaned = cleanup_name_fragment(remove_store_urls(lines[idx]))
             if cleaned:
                 candidates.append(cleaned)
-    fallback = fallback_game_name(video_title)
-    if fallback:
-        candidates.append(fallback)
     return candidates
 
 
@@ -323,6 +356,13 @@ def select_best_name(candidates: list[str]) -> str:
         if is_valid_game_name(candidate):
             return candidate
     return ""
+
+
+def is_title_required_store_classification(classification: dict[str, str | bool]) -> bool:
+    return (
+        classification["link_type"] in OFFICIAL_STORE_LINK_TYPES
+        or classification["platform"] in TITLE_REQUIRED_STORE_PLATFORMS
+    )
 
 
 def classify_url(store_url: str) -> dict[str, str | bool]:
@@ -366,12 +406,13 @@ def classify_url(store_url: str) -> dict[str, str | bool]:
         return non_store_classification("steam")
 
     if host in THIRD_PARTY_STORE_DOMAINS:
+        package_id = extract_package_id_from_url(parsed)
         if looks_like_landing_page(parsed):
-            return low_confidence_non_store_classification("landing_page")
-        return non_store_classification("third_party_store")
+            return low_confidence_non_store_classification("landing_page", package_id=package_id)
+        return non_store_classification("third_party_store", package_id=package_id)
 
     if host in REGIONAL_STORE_DOMAINS:
-        return non_store_classification("regional_store")
+        return non_store_classification("regional_store", package_id=extract_package_id_from_url(parsed))
 
     if host in SOCIAL_DOMAINS:
         return low_confidence_non_store_classification("other")
@@ -407,11 +448,23 @@ def rejected_url_classification(store_url: str, host: str, path: str, reason: st
     }
 
 
-def non_store_classification(platform: str) -> dict[str, str | bool]:
+def extract_package_id_from_url(parsed_url) -> str:
+    query_package_id = (parse_qs(parsed_url.query).get("id") or [""])[0].strip().lower()
+    if PACKAGE_ID_SEGMENT_PATTERN.fullmatch(query_package_id):
+        return query_package_id
+
+    for segment in reversed([part for part in (parsed_url.path or "").split("/") if part]):
+        decoded_segment = unquote(segment).strip().lower()
+        if PACKAGE_ID_SEGMENT_PATTERN.fullmatch(decoded_segment):
+            return decoded_segment
+    return ""
+
+
+def non_store_classification(platform: str, *, package_id: str = "") -> dict[str, str | bool]:
     return {
         "platform": platform,
         "link_type": "non_store",
-        "package_id": "",
+        "package_id": package_id,
         "apple_app_id": "",
         "base_confidence": "medium",
         "reject": False,
@@ -419,8 +472,8 @@ def non_store_classification(platform: str) -> dict[str, str | bool]:
     }
 
 
-def low_confidence_non_store_classification(platform: str) -> dict[str, str | bool]:
-    classification = non_store_classification(platform)
+def low_confidence_non_store_classification(platform: str, *, package_id: str = "") -> dict[str, str | bool]:
+    classification = non_store_classification(platform, package_id=package_id)
     classification["base_confidence"] = "low"
     return classification
 
@@ -513,6 +566,23 @@ def looks_like_sentence(value: str) -> bool:
     if any(marker in lowered for marker in sentence_markers):
         return True
     if len(lowered.split()) >= 10 and lowered.endswith("."):
+        return True
+    chinese_sentence_markers = [
+        "只需",
+        "即可",
+        "展開",
+        "展开",
+        "一段",
+        "輕鬆",
+        "轻松",
+        "忘掉",
+        "既有印象",
+        "即將開啟",
+        "即将开启",
+    ]
+    if any(marker in value for marker in chinese_sentence_markers) and any(mark in value for mark in "，。！？!"):
+        return True
+    if len(value) >= 16 and value.endswith(("。", "！", "？")) and any(mark in value for mark in "，；："):
         return True
     if len(value) >= 24 and any(mark in value for mark in "。！？"):
         return True

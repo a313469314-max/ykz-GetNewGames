@@ -4,19 +4,6 @@ const CSV_HEADERS: Array<keyof NormalizedNewGame> = [
   "statDate",
   "productId",
   "productName",
-  "productIcon",
-  "stableProductIcon",
-  "firstSeen",
-  "type",
-  "platformName",
-  "detailUrl",
-  "fetchedAt"
-];
-
-const COMPANY_CSV_HEADERS: Array<keyof NormalizedNewGame> = [
-  "statDate",
-  "productId",
-  "productName",
   "companyName",
   "productIcon",
   "stableProductIcon",
@@ -27,10 +14,6 @@ const COMPANY_CSV_HEADERS: Array<keyof NormalizedNewGame> = [
   "fetchedAt"
 ];
 
-interface CsvOptions {
-  includeCompanyName?: boolean;
-}
-
 function escapeCsvCell(value: string | number | undefined): string {
   const text = String(value ?? "");
   if (/[",\r\n]/.test(text)) {
@@ -40,10 +23,9 @@ function escapeCsvCell(value: string | number | undefined): string {
   return text;
 }
 
-export function toCsv(rows: NormalizedNewGame[], options: CsvOptions = {}): string {
-  const headers = options.includeCompanyName ? COMPANY_CSV_HEADERS : CSV_HEADERS;
-  const header = headers.join(",");
-  const body = rows.map((row) => headers.map((headerKey) => escapeCsvCell(row[headerKey])).join(","));
+export function toCsv(rows: NormalizedNewGame[]): string {
+  const header = CSV_HEADERS.join(",");
+  const body = rows.map((row) => CSV_HEADERS.map((headerKey) => escapeCsvCell(row[headerKey])).join(","));
   return [header, ...body].join("\r\n");
 }
 

@@ -1,111 +1,91 @@
-# DataEye AdXray 每日新游戏采集工具
+# 国内 DataEye 新品采集工具
 
-使用 Node.js + TypeScript + Playwright 实现 DataEye AdXray 每日新品采集，并支持生成日报文本、发送到飞书群 webhook。
+这个子项目的产品展示名是 **国内 DataEye 新品**，代码目录名保留为 `adx`。它负责从 DataEye AdXray 获取每日新品游戏，补充厂商信息，生成本地 JSON、CSV、TXT 日报，并可选通过飞书群机器人发送日报。
 
-## 项目目录
-
-当前项目目录：
+## 目录
 
 ```text
 D:\GetNewGames\adx
 ```
 
-后续命令都在这个目录下执行。
+## 当前流程
 
-## 功能概览
+`npm run fetch:new-games` 是唯一主采集命令，内部流程是：
 
-- 首次登录后保存登录态到 `.auth/dataeye-state.json`
-- 后续采集复用登录态，浏览器不需要保持打开
-- 默认采集上海时区前一日新品
-- 支持采集指定日期新品
-- 输出 UTF-8 JSON 和 UTF-8 with BOM CSV
-- 额外生成一份日报文本，适合直接发飞书
-- 支持通过飞书 webhook 发送日报
-- 不在控制台输出 token、cookie、sign
+1. 复用 `.auth/dataeye-state.json` 登录态访问 DataEye。
+2. 调用 DataEye 每日新品列表接口。
+3. 按 `Asia/Shanghai` 选择目标日期，默认是运行日前一天。
+4. 标准化产品字段，例如产品名、平台名、图标链接、详情页链接。
+5. 按 `productId` 批量查询产品详情，补充 `companyName`。
+6. 生成包含厂商字段的 JSON、CSV、TXT 日报。
 
-## 安装依赖
+如果登录态失效，脚本会自动打开浏览器要求人工完成验证码和登录，成功后继续执行。
 
-```bash
+同步到飞书多维表格时，对应栏目名是 `国内 DataEye 新品`。
+
+## 安装
+
+```powershell
 cd D:\GetNewGames\adx
 npm install
 npx playwright install chromium
 ```
 
-## 配置 `.env`
+## 配置
 
 复制 `.env.example` 为 `.env`，按需填写：
 
 ```env
 DATAEYE_ACCOUNT=
 DATAEYE_PASSWORD=
-FEISHU_WEBHOOK=
+ADX_FEISHU_WEBHOOK=
 ```
 
 说明：
 
-- `DATAEYE_ACCOUNT` / `DATAEYE_PASSWORD`：用于自动填充登录表单，验证码仍需人工输入
-- `FEISHU_WEBHOOK`：用于发送日报到飞书群；不发送飞书时可留空
+- `DATAEYE_ACCOUNT` / `DATAEYE_PASSWORD`：用于自动填充登录表单，验证码仍需人工处理。
+- `ADX_FEISHU_WEBHOOK`：用于把 TXT 日报发送到飞书群。不发送群消息时可以留空；脚本也兼容读取旧的 `FEISHU_WEBHOOK`。
 
 ## 首次登录
 
-```bash
+```powershell
 cd D:\GetNewGames\adx
 npm run login
 ```
 
-流程说明：
+登录成功后会保存状态到：
 
-1. 程序打开 `https://adxray.dataeye.com/index/home`
-2. 若 `.env` 中配置了 `DATAEYE_ACCOUNT` / `DATAEYE_PASSWORD`，会尝试自动填充
-3. 验证码必须人工输入
-4. 登录成功后程序校验：
-   - `window.App?.isLogin === "1"`
-   - `window.App?.userKey` 存在
-5. 校验成功后保存登录态到 `.auth/dataeye-state.json`
+```text
+D:\GetNewGames\adx\.auth\dataeye-state.json
+```
 
-浏览器不需要保持打开，保存完状态后会自动关闭。
+后续采集会优先复用这个登录态。
 
-## 采集前一日
+## 日期规则
 
-```bash
+`--date` 表示 DataEye `stat_date`，也是后续同步到飞书时使用的 `report_date`。不传 `--date` 时，默认采集上海时区运行日前一天。
+
+## 采集前一天
+
+```powershell
 cd D:\GetNewGames\adx
 npm run fetch:new-games
 ```
 
-默认会按 `Asia/Shanghai` 计算当前日期，并读取前一日数据。
-
-例如：如果当前上海日期是 `2026-05-19`，不传 `--date` 时默认读取 `2026-05-18`。
-
-DataEye 当前入口仍然只返回最近 14 天每日新品；如果前一日不在接口返回范围内，程序会保持现有报错提示。
+例如当前上海日期是 `2026-05-29`，不传 `--date` 时默认采集 `2026-05-28`。
 
 ## 采集指定日期
 
-```bash
+```powershell
 cd D:\GetNewGames\adx
-npm run fetch:new-games -- --date 2026-05-18
+npm run fetch:new-games -- --date 2026-05-28
 ```
 
-如果指定日期不在接口返回范围内，程序会提示：
+DataEye 当前接口只返回最近约 14 天每日新品。指定更早日期时，脚本会报错提示选择最近 14 天内日期。
 
-`DataEye 当前入口仅返回最近 14 天每日新品，请选择最近 14 天内的日期。`
+## 输出文件
 
-## 采集新品并补齐公司名称
-
-公司名称增强功能使用独立命令，不会覆盖默认 `fetch:new-games` 生成的 JSON/CSV/日报。
-
-```bash
-cd D:\GetNewGames\adx
-npm run fetch:new-games:company
-```
-
-采集指定日期并补齐公司名称：
-
-```bash
-cd D:\GetNewGames\adx
-npm run fetch:new-games:company -- --date 2026-05-18
-```
-
-公司版输出路径：
+输出文件：
 
 ```text
 data/daily-new-games-company/YYYY-MM-DD.json
@@ -113,74 +93,63 @@ data/daily-new-games-company/YYYY-MM-DD.csv
 output/dataeye_new_games_company_YYYY-MM-DD.txt
 ```
 
-## 输出文件
+字段重点：
 
-采集时会生成三类文件：
+- `productId`：DataEye 产品 ID，也是 DataEye 侧稳定去重标识。
+- `productName`：产品名。
+- `companyName`：通过产品详情补充的厂商名；部分产品详情查不到时可能为空。
+- `platformName`：平台名，例如 iOS、微信小游戏、抖音小游戏、快手小游戏。
+- `detailUrl`：DataEye 产品详情页链接。
+- `fetchedAt`：本地采集时间。
 
-```text
-data/daily-new-games/YYYY-MM-DD.json
-data/daily-new-games/YYYY-MM-DD.csv
-output/dataeye_new_games_YYYY-MM-DD.txt
-```
+CSV 使用 UTF-8 with BOM，方便 Excel 打开中文。
 
-说明：
+## 发送飞书群日报
 
-- JSON 为 UTF-8，保留中文
-- CSV 为 UTF-8 with BOM，方便 Excel 打开中文不乱码
-- TXT 为日报文本，格式参考旁边 YouTube 新游日报项目，适合直接发飞书
+配置 `ADX_FEISHU_WEBHOOK` 后运行：
 
-## 发送飞书日报
-
-先在 `.env` 或环境变量中配置：
-
-```env
-FEISHU_WEBHOOK=https://open.feishu.cn/open-apis/bot/v2/hook/xxx
-```
-
-发送最近 6 小时内最新的一份日报：
-
-```bash
+```powershell
 cd D:\GetNewGames\adx
 npm run send:feishu
 ```
 
-发送指定日期的日报：
+发送指定日期：
 
-```bash
-cd D:\GetNewGames\adx
-npm run send:feishu -- --date 2026-05-18
+```powershell
+npm run send:feishu -- --date 2026-05-28
 ```
 
-也可以直接指定文件路径：
+直接指定文件：
 
-```bash
-cd D:\GetNewGames\adx
-npm run send:feishu -- --path output/dataeye_new_games_2026-05-18.txt
+```powershell
+npm run send:feishu -- --path output/dataeye_new_games_company_2026-05-28.txt
 ```
 
-## 登录态过期处理
+自动查找日报时，只匹配：
 
-如果登录态失效、状态文件缺失，或接口返回未登录相关响应，请重新执行：
-
-```bash
-cd D:\GetNewGames\adx
-npm run login
+```text
+output/dataeye_new_games_company_YYYY-MM-DD.txt
 ```
 
-## 当前入口限制
+不传 `--date` 或 `--path` 时，会在 `output` 里寻找最近 6 小时内最新的公司版日报。
 
-DataEye 当前入口仅返回最近 14 天每日新品，不支持通过这个入口直接获取更早日期的数据。
+## 验证
+
+```powershell
+cd D:\GetNewGames\adx
+npm test
+npm run typecheck
+```
 
 ## 常用命令
 
-```bash
+```powershell
 cd D:\GetNewGames\adx
 npm run login
 npm run fetch:new-games
-npm run fetch:new-games -- --date 2026-05-18
-npm run fetch:new-games:company
-npm run fetch:new-games:company -- --date 2026-05-18
+npm run fetch:new-games -- --date 2026-05-28
 npm run send:feishu
-npm run send:feishu -- --date 2026-05-18
+npm run send:feishu -- --date 2026-05-28
 npm test
+npm run typecheck
 ```

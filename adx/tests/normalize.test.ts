@@ -27,7 +27,7 @@ describe("normalize", () => {
     expect(getProductCompanyName({ publisherName: "测试发行商" })).toBe("测试发行商");
   });
 
-  it("normalizes rows and deduplicates by statDate + productId", () => {
+  it("normalizes rows and keeps companyName in the default record shape", () => {
     const rows = normalizeNewGames(
       {
         statDate: "2026-05-18",
