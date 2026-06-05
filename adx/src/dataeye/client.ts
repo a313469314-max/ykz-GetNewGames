@@ -1,6 +1,12 @@
-import { access } from "node:fs/promises";
 import { chromium, type BrowserContext } from "playwright";
-import { DATAEYE_HOME_URL, STORAGE_STATE_PATH, getAppAuthSnapshot } from "./auth.js";
+import {
+  DATAEYE_HOME_URL,
+  STORAGE_STATE_PATH,
+  getAppAuthSnapshot,
+  resolveExistingStorageStatePath,
+  saveStorageState,
+  warmRelatedDataEyeSites
+} from "./auth.js";
 import { signDataEyeRequest, type SignParams } from "./sign.js";
 import type { DataEyeNewProductDay, DataEyeResponseEnvelope, FetchDailyNewGamesResult } from "./types.js";
 
@@ -74,14 +80,13 @@ function getCompanyNameFromProductInfo(payload: unknown): string {
 }
 
 async function withDataEyeRequestSession<T>(callback: (session: DataEyeRequestSession) => Promise<T>): Promise<T> {
-  try {
-    await access(STORAGE_STATE_PATH);
-  } catch {
+  const storageStatePath = await resolveExistingStorageStatePath();
+  if (!storageStatePath) {
     throw new LoginRequiredError("未找到 .auth/dataeye-state.json，请先执行 `npm run login`。");
   }
 
   const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext({ storageState: STORAGE_STATE_PATH });
+  const context = await browser.newContext({ storageState: storageStatePath });
   const page = await context.newPage();
 
   try {
@@ -92,6 +97,11 @@ async function withDataEyeRequestSession<T>(callback: (session: DataEyeRequestSe
 
     if (appAuth.isLogin !== "1" || !token) {
       throw new LoginRequiredError();
+    }
+
+    if (storageStatePath !== STORAGE_STATE_PATH) {
+      await warmRelatedDataEyeSites(context);
+      await saveStorageState(context);
     }
 
     return await callback({ context, token, deHeaderS });

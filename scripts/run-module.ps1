@@ -76,7 +76,10 @@ function Get-RunPlan {
                 }
                 "send" {
                     $args = @("run", "send:feishu")
-                    if ($Date) { $args += @("--", "--date", $Date) }
+                    $scriptArgs = @()
+                    if ($Test) { $scriptArgs += "--test" }
+                    if ($Date) { $scriptArgs += @("--date", $Date) }
+                    if ($scriptArgs.Count -gt 0) { $args += @("--") + $scriptArgs }
                     return New-RunPlan -Name "dataeye send" -WorkDir $moduleRoot -Command "npm" -Args $args -Risk "send" -RequiresAllowRemote $true
                 }
                 "test" {

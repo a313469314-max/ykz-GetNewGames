@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { resolveReportPath } from "../src/feishu/client.js";
+import { resolveFeishuWebhook, resolveReportPath } from "../src/feishu/client.js";
 
 describe("resolveReportPath", () => {
   it("does not match historical base report files", async () => {
@@ -20,5 +20,47 @@ describe("resolveReportPath", () => {
     await writeFile(mainPath, "main", "utf8");
 
     await expect(resolveReportPath(dir, "2026-05-28")).resolves.toBe(mainPath);
+  });
+
+  it("uses the normal AdX webhook by default", () => {
+    const resolved = resolveFeishuWebhook(
+      {
+        ADX_FEISHU_WEBHOOK: "https://example.com/normal",
+        ADX_FEISHU_TEST_WEBHOOK: "https://example.com/test"
+      },
+      false
+    );
+
+    expect(resolved).toEqual({
+      envName: "ADX_FEISHU_WEBHOOK",
+      targetName: "normal webhook",
+      webhook: "https://example.com/normal"
+    });
+  });
+
+  it("uses the AdX test webhook in test mode", () => {
+    const resolved = resolveFeishuWebhook(
+      {
+        ADX_FEISHU_WEBHOOK: "https://example.com/normal",
+        ADX_FEISHU_TEST_WEBHOOK: "https://example.com/test"
+      },
+      true
+    );
+
+    expect(resolved).toEqual({
+      envName: "ADX_FEISHU_TEST_WEBHOOK",
+      targetName: "test webhook",
+      webhook: "https://example.com/test"
+    });
+  });
+
+  it("does not fall back to the normal webhook in test mode", () => {
+    const resolved = resolveFeishuWebhook({ ADX_FEISHU_WEBHOOK: "https://example.com/normal" }, true);
+
+    expect(resolved).toEqual({
+      envName: "ADX_FEISHU_TEST_WEBHOOK",
+      targetName: "test webhook",
+      webhook: ""
+    });
   });
 });

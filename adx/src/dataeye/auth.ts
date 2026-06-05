@@ -1,4 +1,6 @@
-import { mkdir } from "node:fs/promises";
+import { access, mkdir } from "node:fs/promises";
+import { dirname, isAbsolute, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { chromium, type BrowserContext, type Page } from "playwright";
 import dotenv from "dotenv";
 import type { AppAuthSnapshot } from "./types.js";
@@ -6,8 +8,28 @@ import type { AppAuthSnapshot } from "./types.js";
 dotenv.config({ quiet: true });
 
 export const DATAEYE_HOME_URL = "https://adxray.dataeye.com/index/home";
-export const AUTH_DIR = ".auth";
-export const STORAGE_STATE_PATH = ".auth/dataeye-state.json";
+export const DATAEYE_OVERSEAS_HOME_URL = "https://oversea-v2.dataeye.com/dashboard/home";
+
+export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
+export const ADX_PROJECT_ROOT = resolve(REPO_ROOT, "adx");
+export const AUTH_DIR = resolve(REPO_ROOT, ".auth");
+export const LEGACY_STORAGE_STATE_PATH = resolve(ADX_PROJECT_ROOT, ".auth/dataeye-state.json");
+
+function isLegacyDefaultStorageStatePath(value: string): boolean {
+  const normalized = value.replace(/\\/g, "/").replace(/^\.\//, "");
+  return normalized === ".auth/dataeye-state.json";
+}
+
+export function resolveDataEyeStorageStatePath(value = process.env.DATAEYE_STORAGE_STATE): string {
+  const configuredPath = value?.trim();
+  if (!configuredPath || isLegacyDefaultStorageStatePath(configuredPath)) {
+    return resolve(AUTH_DIR, "dataeye-state.json");
+  }
+
+  return isAbsolute(configuredPath) ? configuredPath : resolve(ADX_PROJECT_ROOT, configuredPath);
+}
+
+export const STORAGE_STATE_PATH = resolveDataEyeStorageStatePath();
 
 const LOGIN_TIMEOUT_MS = 5 * 60 * 1000;
 const APP_SNAPSHOT_RETRY_COUNT = 3;
@@ -76,13 +98,50 @@ export async function isDataEyeLoggedIn(page: Page): Promise<boolean> {
 }
 
 export async function saveStorageState(context: BrowserContext): Promise<void> {
-  await mkdir(AUTH_DIR, { recursive: true });
+  await mkdir(dirname(STORAGE_STATE_PATH), { recursive: true });
   await context.storageState({ path: STORAGE_STATE_PATH });
+}
+
+export async function resolveExistingStorageStatePath(): Promise<string | undefined> {
+  const candidates = [STORAGE_STATE_PATH, LEGACY_STORAGE_STATE_PATH];
+  for (const candidate of candidates) {
+    try {
+      await access(candidate);
+      return candidate;
+    } catch {
+      // Try the next migration candidate.
+    }
+  }
+
+  return undefined;
+}
+
+async function createLoginContext(browser: Awaited<ReturnType<typeof chromium.launch>>): Promise<BrowserContext> {
+  const existingState = await resolveExistingStorageStatePath();
+  if (!existingState) {
+    return browser.newContext();
+  }
+
+  try {
+    return await browser.newContext({ storageState: existingState });
+  } catch {
+    return browser.newContext();
+  }
+}
+
+export async function warmRelatedDataEyeSites(context: BrowserContext): Promise<void> {
+  const page = await context.newPage();
+  try {
+    await page.goto(DATAEYE_OVERSEAS_HOME_URL, { waitUntil: "domcontentloaded", timeout: 30_000 }).catch(() => undefined);
+    await page.waitForLoadState("networkidle", { timeout: 10_000 }).catch(() => undefined);
+  } finally {
+    await page.close();
+  }
 }
 
 export async function runInteractiveLogin(): Promise<void> {
   const browser = await chromium.launch({ headless: false });
-  const context = await browser.newContext();
+  const context = await createLoginContext(browser);
   const page = await context.newPage();
 
   try {
@@ -133,6 +192,7 @@ export async function runInteractiveLogin(): Promise<void> {
       throw new Error("检测到页面流程结束，但登录态校验未通过。");
     }
 
+    await warmRelatedDataEyeSites(context);
     await saveStorageState(context);
     console.log("登录成功，已保存登录态。");
   } catch (error) {

@@ -76,6 +76,7 @@ D:\GetNewGames
 ```powershell
 cd D:\GetNewGames\adx
 npm run fetch:new-games
+npm run send:feishu -- --test
 ```
 
 - `npm run fetch:new-games`：真实抓取 DataEye，并写入本地 `data/` 与 `output/`。

@@ -38,13 +38,16 @@ npx playwright install chromium
 ```env
 DATAEYE_ACCOUNT=
 DATAEYE_PASSWORD=
+DATAEYE_STORAGE_STATE=../.auth/dataeye-state.json
 ADX_FEISHU_WEBHOOK=
+ADX_FEISHU_TEST_WEBHOOK=
 ```
 
 说明：
 
 - `DATAEYE_ACCOUNT` / `DATAEYE_PASSWORD`：用于自动填充登录表单，验证码仍需人工处理。
-- `ADX_FEISHU_WEBHOOK`：用于把 TXT 日报发送到飞书群。不发送群消息时可以留空；脚本也兼容读取旧的 `FEISHU_WEBHOOK`。
+- `ADX_FEISHU_WEBHOOK`：用于把 TXT 日报发送到正式飞书群。不发送群消息时可以留空；脚本也兼容读取旧的 `FEISHU_WEBHOOK`。
+- `ADX_FEISHU_TEST_WEBHOOK`：用于 `npm run send:feishu -- --test` 的测试飞书群；脚本也兼容读取 `FEISHU_TEST_WEBHOOK`。
 
 ## 首次登录
 
@@ -56,7 +59,7 @@ npm run login
 登录成功后会保存状态到：
 
 ```text
-D:\GetNewGames\adx\.auth\dataeye-state.json
+D:\GetNewGames\.auth\dataeye-state.json
 ```
 
 后续采集会优先复用这个登录态。
@@ -113,6 +116,12 @@ cd D:\GetNewGames\adx
 npm run send:feishu
 ```
 
+发送到测试机器人：
+
+```powershell
+npm run send:feishu -- --test
+```
+
 发送指定日期：
 
 ```powershell
@@ -149,6 +158,7 @@ npm run login
 npm run fetch:new-games
 npm run fetch:new-games -- --date 2026-05-28
 npm run send:feishu
+npm run send:feishu -- --test
 npm run send:feishu -- --date 2026-05-28
 npm test
 npm run typecheck

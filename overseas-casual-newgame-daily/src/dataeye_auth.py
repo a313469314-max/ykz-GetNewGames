@@ -12,6 +12,12 @@ from .dataeye_browser import safe_page_text
 LOGIN_SIGNALS = ("新品发现", "素材筛选", "搜索产品名", "搜索公司名", "我的收藏", "产品")
 LOGIN_FORM_SIGNALS = ("帐号", "账号", "密码", "验证码", "忘记密码", "立即注册")
 LOGIN_URL_HINTS = ("login", "signin", "sign-in")
+DATAEYE_DOMESTIC_HOME_URL = "https://adxray.dataeye.com/index/home"
+
+
+def _is_legacy_default_storage_state(value: str) -> bool:
+    normalized = value.replace("\\", "/").removeprefix("./")
+    return normalized == ".auth/dataeye-state.json"
 
 
 @dataclass(frozen=True)
@@ -20,6 +26,7 @@ class DataEyeSettings:
     password: str
     home_url: str
     storage_state: Path
+    legacy_storage_states: tuple[Path, ...] = ()
 
 
 def _load_dotenv(env_path: Path) -> None:
@@ -42,18 +49,22 @@ def load_settings(project_root: Path | str = ".") -> DataEyeSettings:
     root = Path(project_root).resolve()
     _load_dotenv(root / ".env")
     home_url = os.getenv("DATAEYE_HOME_URL", "https://oversea-v2.dataeye.com/dashboard/home")
-    storage_state = Path(os.getenv("DATAEYE_STORAGE_STATE", ".auth/dataeye-state.json"))
+    configured_storage_state = os.getenv("DATAEYE_STORAGE_STATE", "").strip()
+    if configured_storage_state and not _is_legacy_default_storage_state(configured_storage_state):
+        storage_state = Path(configured_storage_state)
+    else:
+        storage_state = root.parent / ".auth/dataeye-state.json"
     if not storage_state.is_absolute():
         storage_state = root / storage_state
+    storage_state = storage_state.resolve()
     email = os.getenv("DATAEYE_EMAIL", "").strip()
     password = os.getenv("DATAEYE_PASSWORD", "").strip()
-    if not email or not password:
-        raise RuntimeError("DATAEYE_EMAIL and DATAEYE_PASSWORD must be set in .env")
     return DataEyeSettings(
         email=email,
         password=password,
         home_url=home_url,
         storage_state=storage_state,
+        legacy_storage_states=(root / ".auth/dataeye-state.json",),
     )
 
 
@@ -95,6 +106,9 @@ def _first_fillable(page: Any, selectors: tuple[str, ...]) -> Any | None:
 
 
 def _fill_login_form(page: Any, settings: DataEyeSettings) -> bool:
+    if not settings.email or not settings.password:
+        return False
+
     email_selectors = (
         'input[type="email"]',
         'input[name*="email" i]',
@@ -181,18 +195,52 @@ def perform_login(page: Any, settings: DataEyeSettings, wait_timeout_ms: int = 3
         raise TimeoutError("Timed out waiting for DataEye login to complete.")
 
 
+def _storage_state_candidates(settings: DataEyeSettings) -> tuple[Path, ...]:
+    candidates = [settings.storage_state, *settings.legacy_storage_states]
+    unique_candidates: list[Path] = []
+    seen: set[Path] = set()
+    for candidate in candidates:
+        resolved = candidate.resolve()
+        if resolved in seen:
+            continue
+        seen.add(resolved)
+        unique_candidates.append(candidate)
+    return tuple(unique_candidates)
+
+
+def _save_storage_state(context: Any, settings: DataEyeSettings) -> None:
+    settings.storage_state.parent.mkdir(parents=True, exist_ok=True)
+    context.storage_state(path=str(settings.storage_state))
+
+
+def _warm_related_dataeye_sites(context: Any) -> None:
+    page = context.new_page()
+    try:
+        try:
+            page.goto(DATAEYE_DOMESTIC_HOME_URL, wait_until="domcontentloaded", timeout=30_000)
+            page.wait_for_load_state("networkidle", timeout=10_000)
+        except Exception:
+            pass
+    finally:
+        page.close()
+
+
 class DataEyeSession:
     def __init__(self, settings: DataEyeSettings, headed: bool = False) -> None:
         self.settings = settings
         self.headed = headed
 
     def open(self, playwright: Any) -> tuple[Any, Any, Any]:
-        if self.settings.storage_state.exists():
+        for storage_state in _storage_state_candidates(self.settings):
+            if not storage_state.exists():
+                continue
             browser = playwright.chromium.launch(headless=not self.headed)
-            context = browser.new_context(storage_state=str(self.settings.storage_state))
+            context = browser.new_context(storage_state=str(storage_state))
             page = context.new_page()
             page.goto(self.settings.home_url, wait_until="domcontentloaded")
             if is_logged_in(page):
+                _warm_related_dataeye_sites(context)
+                _save_storage_state(context, self.settings)
                 return browser, context, page
             context.close()
             browser.close()
@@ -201,6 +249,6 @@ class DataEyeSession:
         context = browser.new_context()
         page = context.new_page()
         perform_login(page, self.settings)
-        self.settings.storage_state.parent.mkdir(parents=True, exist_ok=True)
-        context.storage_state(path=str(self.settings.storage_state))
+        _warm_related_dataeye_sites(context)
+        _save_storage_state(context, self.settings)
         return browser, context, page

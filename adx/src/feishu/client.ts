@@ -2,6 +2,41 @@ import { readdir, readFile, stat } from "node:fs/promises";
 import { join } from "node:path";
 
 const REPORT_FILE_REGEX = /^dataeye_new_games_company_(\d{4}-\d{2}-\d{2})\.txt$/;
+const NORMAL_WEBHOOK_ENVS = ["ADX_FEISHU_WEBHOOK", "FEISHU_WEBHOOK"] as const;
+const TEST_WEBHOOK_ENVS = ["ADX_FEISHU_TEST_WEBHOOK", "FEISHU_TEST_WEBHOOK"] as const;
+
+interface FeishuWebhookResolution {
+  envName: string;
+  targetName: string;
+  webhook: string;
+}
+
+function resolveFirstEnvValue(
+  env: Record<string, string | undefined>,
+  envNames: readonly string[]
+): { envName: string; value: string } {
+  for (const envName of envNames) {
+    const value = env[envName]?.trim();
+    if (value) {
+      return { envName, value };
+    }
+  }
+
+  return { envName: envNames[0], value: "" };
+}
+
+export function resolveFeishuWebhook(
+  env: Record<string, string | undefined>,
+  useTest = false
+): FeishuWebhookResolution {
+  const envNames = useTest ? TEST_WEBHOOK_ENVS : NORMAL_WEBHOOK_ENVS;
+  const resolved = resolveFirstEnvValue(env, envNames);
+  return {
+    envName: resolved.envName,
+    targetName: useTest ? "test webhook" : "normal webhook",
+    webhook: resolved.value
+  };
+}
 
 export async function sendFeishuTextReport(webhook: string, text: string): Promise<void> {
   const response = await fetch(webhook, {

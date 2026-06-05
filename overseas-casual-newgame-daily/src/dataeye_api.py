@@ -11,6 +11,7 @@ from typing import Any
 from urllib.parse import quote
 
 import requests
+from requests.cookies import RequestsCookieJar
 
 from .dates import format_date
 from .stores import parse_store_identity
@@ -36,14 +37,18 @@ def compute_sign(params: dict[str, Any]) -> str:
     return hashlib.md5(raw.encode("utf-8")).hexdigest().upper()
 
 
-def cookies_from_storage_state(path: Path | str) -> dict[str, str]:
+def cookies_from_storage_state(path: Path | str) -> RequestsCookieJar:
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
-    cookies: dict[str, str] = {}
+    cookies = RequestsCookieJar()
     for cookie in payload.get("cookies", []):
         name = cookie.get("name")
         value = cookie.get("value")
         if name and value is not None:
-            cookies[str(name)] = str(value)
+            cookie_kwargs = {"path": str(cookie.get("path") or "/")}
+            domain = str(cookie.get("domain") or "")
+            if domain:
+                cookie_kwargs["domain"] = domain
+            cookies.set(str(name), str(value), **cookie_kwargs)
     return cookies
 
 

@@ -1,6 +1,6 @@
 import { parseArgs } from "node:util";
 import dotenv from "dotenv";
-import { readReportText, resolveReportPath, sendFeishuTextReport } from "../feishu/client.js";
+import { readReportText, resolveFeishuWebhook, resolveReportPath, sendFeishuTextReport } from "../feishu/client.js";
 import { REPORT_OUTPUT_DIR } from "../reporting/daily-report.js";
 import { assertDateInput } from "../utils/date.js";
 
@@ -14,14 +14,18 @@ async function main(): Promise<void> {
       },
       date: {
         type: "string"
+      },
+      test: {
+        type: "boolean",
+        default: false
       }
     },
     allowPositionals: false
   });
 
-  const webhook = (process.env.ADX_FEISHU_WEBHOOK ?? process.env.FEISHU_WEBHOOK)?.trim();
+  const { envName, targetName, webhook } = resolveFeishuWebhook(process.env, Boolean(values.test));
   if (!webhook) {
-    console.error("缺少 ADX_FEISHU_WEBHOOK，请在 .env 或环境变量中配置后再发送。");
+    console.error(`Missing ${envName}. Set it in .env or environment variables before sending.`);
     process.exitCode = 1;
     return;
   }
@@ -38,7 +42,7 @@ async function main(): Promise<void> {
 
   const text = await readReportText(reportPath);
   await sendFeishuTextReport(webhook, text);
-  console.log(`飞书发送成功：${reportPath}`);
+  console.log(`Feishu report sent to ${targetName}: ${reportPath}`);
 }
 
 void main().catch((error) => {

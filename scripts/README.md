@@ -36,6 +36,12 @@ Execute Feishu sync:
 powershell -ExecutionPolicy Bypass -File scripts/run-module.ps1 -Module feishu-sync -Action sync -Date 2026-06-04 -Execute -AllowRemote
 ```
 
+Preview domestic DataEye test send:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/run-module.ps1 -Module dataeye -Action send -Date 2026-06-04 -Test
+```
+
 `check-modules.ps1` is a batch safety verification entrypoint. It will not trigger real business operations (`不会触发真实业务`): it only runs checks that should not trigger real crawling, sending, or syncing. It reports module pass/fail status and does not install dependencies, clean files, stage, or commit.
 
 Run all safe checks:
